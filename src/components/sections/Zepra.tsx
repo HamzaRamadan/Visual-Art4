@@ -4,7 +4,7 @@ const Zepra = () => {
   return (
     <section style={styles.container}>
       <div style={styles.blueSpaceTop}></div>
-      <img src="../../../public/assets/images/zepra.jpg" alt="Static" style={styles.image} />
+      <img src="/assets/images/zepra.jpg" alt="Static" style={styles.image} />
       <div style={styles.blueSpaceBottom}></div>
     </section>
   );

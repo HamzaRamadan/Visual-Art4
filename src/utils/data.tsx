@@ -177,7 +177,7 @@ treatments, ensuring high quality, fast turnaround, and reduced costs to get you
 export const productsData = {
   ar: [
     {
-      img: "../../public/assets/images/p1.png",
+      img: "/assets/images/p1.png",
       category: "تغليف الأدوية والمنتجات الصيدلانية",
       title: "تغليف الأدوية والمنتجات الصيدلانية",
       description:
@@ -185,7 +185,7 @@ export const productsData = {
       features: ["علب", "نشرة", "رقائق", "ملصقات"],
     },
     {
-      img: "../../public/assets/images/p2.png",
+      img: "/assets/images/p2.png",
       category: "تغليف المنتجات الغذائية",
       title: "تغليف المنتجات الغذائية",
       description:
@@ -197,7 +197,7 @@ export const productsData = {
       ],
     },
     {
-      img: "../../public/assets/images/p3.png",
+      img: "/assets/images/p3.png",
       category: "صناديق خاصة",
       title: "صناديق خاصة",
       description:
@@ -209,7 +209,7 @@ export const productsData = {
       ],
     },
     {
-      img: "../../public/assets/images/p1.png",
+      img: "/assets/images/p1.png",
       category: "نوافذ شفافة",
       title: "نوافذ شفافة",
       description:
@@ -217,7 +217,7 @@ export const productsData = {
       features: ["عرض المنتج", "حماية العبوة", "جودة طباعة عالية"],
     },
     {
-      img: "../../public/assets/images/p1.png",
+      img: "/assets/images/p1.png",
 
       category: "صناديق laminated",
       title: "صناديق laminated",
@@ -226,7 +226,7 @@ export const productsData = {
       features: ["حماية متقدمة", "مظهر فاخر", "متانة عالية"],
     },
     {
-      img: "../../public/assets/images/p2.png",
+      img: "/assets/images/p2.png",
 
       category: "الملصقات",
       title: "الملصقات",
@@ -237,7 +237,7 @@ export const productsData = {
   ],
   en: [
     {
-      img: "../../public/assets/images/p1.png",
+      img: "/assets/images/p1.png",
 
       category: "Medical & pharmaceutical packaging",
       title: "Medical & pharmaceutical packaging",
@@ -246,7 +246,7 @@ export const productsData = {
       features: ["boxes", "Leaflet", "foil", "Label"],
     },
     {
-      img: "../../public/assets/images/p2.png",
+      img: "/assets/images/p2.png",
 
       category: "Food Packaging",
       title: "Food Packaging",
@@ -259,7 +259,7 @@ export const productsData = {
       ],
     },
     {
-      img: "../../public/assets/images/p3.png",
+      img: "/assets/images/p3.png",
 
       category: "Special Boxes",
       title: "Special Boxes",
@@ -272,7 +272,7 @@ export const productsData = {
       ],
     },
     {
-      img: "../../public/assets/images/p1.png",
+      img: "/assets/images/p1.png",
 
       category: "Window Patching",
       title: "Window Patching",
@@ -281,7 +281,7 @@ export const productsData = {
       features: ["product display", "package protection", "high print quality"],
     },
     {
-      img: "../../public/assets/images/p2.png",
+      img: "/assets/images/p2.png",
 
       category: "Laminated Carton",
       title: "Laminated Carton",
@@ -294,7 +294,7 @@ export const productsData = {
       ],
     },
     {
-      img: "../../public/assets/images/p3.png",
+      img: "/assets/images/p3.png",
 
       category: "Labels",
       title: "Labels",
