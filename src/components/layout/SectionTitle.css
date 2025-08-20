@@ -1,0 +1,76 @@
+
+
+/* الحاوية الرئيسية */
+.section-title-container {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* العنوان الرئيسي */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(#DC3545, #DC3545);
+  margin-bottom: 30px;
+  position: relative;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* العنوان الفرعي */
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* العنصر الزائف (الخط تحت العنوان) */
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 80px;
+  height: 4px;
+  background-color: var(--secondary-color, #ffc107);
+}
+
+/* === معالجة اتجاه اللغة === */
+
+/* 1. حالة اللغة الإنجليزية (LTR) */
+[dir="ltr"] .section-title {
+  text-align: left;
+}
+
+[dir="ltr"] .section-title::after {
+  left: 0;
+  transform: none;
+}
+
+/* 2. حالة اللغة العربية (RTL) */
+[dir="rtl"] .section-title {
+  text-align: right;
+}
+
+[dir="rtl"] .section-title::after {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+/* === معالجة حالة التوسيط === */
+
+/* عند تفعيل التوسيط */
+.section-title-container.centered .section-title {
+  text-align: center !important;
+}
+
+.section-title-container.centered .section-title::after {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+}
+
+/* عند تفعيل التوسيط مع العنوان الفرعي */
+.section-title-container.centered .section-subtitle {
+  text-align: center;
+}

@@ -48,6 +48,9 @@
 
 
 @media (max-width: 768px) {
+  #about{
+  margin-top: -200px;
+}
   .about-vision-mission {
     flex-direction: column;
   }
@@ -68,6 +71,11 @@
   }
 }
 
+@media (min-width: 500px) and (max-width: 768px) {
+  #about{
+  margin-top: -110px;
+  }
+}
 
 .about-read-more {
   text-align: center;

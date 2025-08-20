@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguageHook } from '../../hooks/useLanguage';
 
 interface SectionTitleProps {
   title: string;
@@ -7,9 +8,12 @@ interface SectionTitleProps {
 }
 
 const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle, centered = true }) => {
+  const { language } = useLanguageHook();
+  const isRTL = language === 'ar';
+
   return (
-    <div className={`section-title-container ${centered ? 'text-center' : ''}`}>
-      <h2 className="section-title" style={{color:"#DC3545"}}>{title}</h2>
+    <div className={`section-title-container ${centered ? 'text-center' : ''} ${isRTL ? 'rtl' : 'ltr'}`}>
+      <h2 className="section-title">{title}</h2>
       {subtitle && <p className="section-subtitle">{subtitle}</p>}
     </div>
   );

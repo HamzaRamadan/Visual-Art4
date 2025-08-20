@@ -27,6 +27,11 @@ html {
   overflow-x: hidden;
   /* منع التمرير الأفقي في الصفحة بأكملها */
 }
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
 
 body {
   font-family     : 'Cairo', 'Poppins', sans-serif;
@@ -64,26 +69,40 @@ body {
   font-weight  : 700;
   color        : var(--primary-color);
   margin-bottom: 30px;
-  text-align   : center;
   position     : relative;
   width        : 100%;
-  /* عرض كامل */
   max-width    : 100%;
-  /* أقصى عرض 100% */
   overflow-wrap: break-word;
-  /* التفاف النص الطويل */
 }
 
+/* الخط الافتراضي لوسط النص */
 .section-title::after {
   content         : '';
   position        : absolute;
   bottom          : -10px;
-  left            : 50%;
-  transform       : translateX(-50%);
   width           : 80px;
   height          : 4px;
   background-color: var(--secondary-color);
 }
+
+/* الخط عند اللغة الانجليزية (يسار-يمين) */
+.ltr .section-title {
+  text-align: left;
+}
+.ltr .section-title::after {
+  left: 0;
+  transform: none;
+}
+
+/* الخط عند اللغة العربية */
+.rtl .section-title {
+  text-align: right;
+}
+.rtl .section-title::after {
+  right: 0;
+  transform: none;
+}
+
 
 .btn {
   display         : inline-block;

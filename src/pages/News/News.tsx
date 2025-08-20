@@ -55,7 +55,7 @@ const News = () => {
         </div>
         <div className="news-video">
           <video controls>
-            <source src="/assets/videos/your-video.mp4" type="video/mp4" />
+            <source src="/assets/videos/hero.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
