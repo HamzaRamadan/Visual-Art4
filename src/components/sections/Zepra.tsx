@@ -1,11 +1,13 @@
 import React from 'react';
 
 const Zepra = () => {
+  const isMobile = window.innerWidth <= 768; // يعتبر فون لو الشاشة صغيرة
+
+  const containerHeight = isMobile ? '50vh' : '80vh'; // ارتفاع مختلف للفون
+
   return (
-    <section style={styles.container}>
-      <div style={styles.blueSpaceTop}></div>
+    <section style={{ ...styles.container, height: containerHeight }}>
       <img src="/assets/images/zepra.jpg" alt="Static" style={styles.image} />
-      <div style={styles.blueSpaceBottom}></div>
     </section>
   );
 };
@@ -16,14 +18,14 @@ export default Zepra;
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
     width: '100%',
-    height: '80vh',
     display: 'flex',
-    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     overflow: 'hidden',
   },
-   image: {
+  image: {
     width: '100%',
     height: '100%',
+    objectFit: 'contain', // الصورة كلها تظهر بدون قص
   },
 };
-

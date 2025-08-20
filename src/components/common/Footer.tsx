@@ -145,79 +145,53 @@ const Footer: React.FC = () => {
 )}
 
 
-              <div>
-                <h3>{isRTL ? "اتصل بنا" : "Contact Us"}</h3>
-                <ul
-                  style={{
-                    listStyle: "none",
-                    padding: 0,
-                    margin: 0,
-                    display: windowWidth < 768 ? "grid" : "block",
-                    gridTemplateColumns:
-                      windowWidth < 576 ? "1fr 1fr" : "1fr 1fr",
-                    gap: windowWidth < 768 ? "15px 20px" : "0",
-                  }}
-                >
-                  <li
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "10px",
-                      marginBottom: "15px",
-                    }}
-                  >
-                    <div style={{ color: "#f8f9fa" }}>
-                      <FaMapMarkerAlt />
-                    </div>
-                    <span style={{ fontSize: "0.95rem" }}>
-                      {contact.address}
-                    </span>
-                  </li>
-                  <li
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "10px",
-                      marginBottom: "15px",
-                    }}
-                  >
-                    <div style={{ color: "#f8f9fa" }}>
-                      <FaPhone style={{ fontSize: "22px" }} />
-                    </div>
-                    <span style={{ fontSize: "0.95rem" }}>
-                      {isRTL ? "0000 054 287 469+" : "+964 782 450 0000"}
-                    </span>
-                  </li>
-                  <li
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "10px",
-                      marginBottom: "15px",
-                    }}
-                  >
-                    <div style={{ color: "#f8f9fa" }}>
-                      <FaEnvelope />
-                    </div>
-                    <span style={{ fontSize: "0.95rem" }}>{contact.email}</span>
-                  </li>
-                  <li
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "10px",
-                      marginBottom: "15px",
-                    }}
-                  >
-                    <div style={{ color: "#f8f9fa" }}>
-                      <FaGlobe />
-                    </div>
-                    <span style={{ fontSize: "0.95rem" }}>
-                      {contact.website}
-                    </span>
-                  </li>
-                </ul>
-              </div>
+             {/* Contact Info – Responsive for Mobile */}
+<div
+  style={{
+    flex: 1,
+    textAlign: "center",
+    marginTop: "20px",
+  }}
+>
+  <h3>{isRTL ? "اتصل بنا" : "Contact Us"}</h3>
+  <ul
+    style={{
+      listStyle: "none",
+      padding: 0,
+      marginTop: "10px",
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr", // 2 عمود على الموبايل
+      gap: "10px 20px",
+      justifyItems: "center",
+    }}
+  >
+    <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <FaMapMarkerAlt />
+      <span>{contact.address}</span>
+    </li>
+    <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <FaPhone />
+      <span
+        style={{
+          direction: "ltr",
+          unicodeBidi: "plaintext",
+          fontFamily: "Arial, sans-serif",
+        }}
+      >
+        {isRTL ? "+964 782 450 0000" : "+964 782 450 0000"}
+      </span>
+    </li>
+    <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <FaEnvelope />
+      <span>{contact.email}</span>
+    </li>
+    <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <FaGlobe />
+      <span>{contact.website}</span>
+    </li>
+  </ul>
+</div>
+
             </div>
           </div>
         </div>
