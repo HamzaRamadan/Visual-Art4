@@ -17,7 +17,7 @@ const AboutDetailes = () => {
     <div className="page about-page">
       {/* Hero Section */}
       <div className="about-hero">
-        <div className="about-hero-image"></div>
+        <div className="about-hero-text"></div>
       </div>
 
       {/* Content Section */}
@@ -42,61 +42,47 @@ const AboutDetailes = () => {
 
       <style>
         {`
-          .about-hero {
-            position: relative;
-            width: 100%;
-            height: 50vh;
-            overflow: hidden;
-                margin-top: -100px;
+    .about-hero {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      margin-top: -100px;
+      background-image: url('/assets/images/aboutUs.jpeg');
+      background-size: cover;      
+      background-repeat: no-repeat; 
+      background-position: center;
+      background-attachment: fixed; /* ✅ شغال للديسكتوب */
+    }
 
-          }
+    .about-hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
 
-          .about-hero-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50vh;
-            background-image: url('/assets/images/aboutUs.jpeg');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-          }
+    .about-content {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      padding-top: 2rem;
+    }
 
-          .about-hero-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #fff;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-            text-align: center;
-          }
-
-          .about-content {
-            position: relative;
-            z-index: 1;
-            background: #fff;
-            padding-top: 2rem;
-          }
-
-          @media (max-width: 768px) {
-            .about-hero {
-              height: 60vh;
-                margin-top: -200px;
-            }
-            .about-hero-text h1 {
-              font-size: 1.8rem;
-              margin-top:'
-            }
-            .about-text p {
-              font-size: 0.95rem;
-            }
-            .vision-mission-card {
-              margin-bottom: 1.5rem;
-            }
-          }
-        `}
+    /* 📱 للموبايل فقط */
+    @media screen and (max-width: 767px) {
+      .about-hero {
+        height: 50vh; 
+        margin-top: -120px;
+        background-attachment: scroll !important; /* ✅ غصب عنه يغير */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  `}
       </style>
     </div>
   );
