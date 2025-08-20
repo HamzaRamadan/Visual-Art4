@@ -1,7 +1,7 @@
 import SectionTitle from '../components/layout/SectionTitle';
 import { useLanguage } from '../context/LanguageContext';
 import { aboutTranslations } from '../utils/aboutTranslations';
-// import '../components/sections/AboutUs.css';
+import '../components/sections/AboutUs.css';
 
 const AboutDetailes = () => {
   const { language } = useLanguage();
@@ -10,29 +10,25 @@ const AboutDetailes = () => {
   };
 
   return (
-    <div className="about-page">
-      <div className="about-image-wrapper">
-        <img
-          src="/assets/images/aboutUs.jpeg"
-          alt="About Us"
-          className="about-image"
-        />
+    <div className="page about-page">
+      {/* Hero Section */}
+      <div className="about-hero">
+        <div className="about-hero-image"></div>
+        
       </div>
 
-      <div className="about-content-overlay">
+      {/* Content Section */}
+      <div className="about-content">
         <div className="container">
           <SectionTitle title={t('aboutTitle')} />
-
           <div className="about-text">
             <p>{t('aboutContent')}</p>
           </div>
-
           <div className="about-vision-mission">
             <div className="vision-mission-card">
               <h3>{t('ourVision')}</h3>
               <p>{t('vision')}</p>
             </div>
-
             <div className="vision-mission-card">
               <h3>{t('ourMission')}</h3>
               <p>{t('mission')}</p>
@@ -43,42 +39,54 @@ const AboutDetailes = () => {
 
       <style>
         {`
-          .about-image-wrapper {
+          .about-hero {
             position: relative;
             width: 100%;
-            height: 60vh;
+            height: 50vh;
             overflow: hidden;
           }
 
-          .about-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: sticky;
+          .about-hero-image {
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+            background-image: url('/assets/images/aboutUs.jpeg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
           }
 
-          .about-content-overlay {
+          .about-hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+          }
+
+          .about-content {
             position: relative;
             z-index: 1;
-            margin-top: -60vh; /* عشان المحتوى يبدأ فوق الصورة */
-            padding-top: 60vh; /* نفس ارتفاع الصورة */
-          }
-
-          .vision-mission-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
+            background: #fff;
+            padding-top: 2rem;
           }
 
           @media (max-width: 768px) {
-            .about-image-wrapper {
-              height: 40vh;
+            .about-hero {
+              height: 60vh;
             }
-            .about-content-overlay {
-              margin-top: -40vh;
-              padding-top: 40vh;
+            .about-hero-text h1 {
+              font-size: 1.8rem;
+            }
+            .about-text p {
+              font-size: 0.95rem;
+            }
+            .vision-mission-card {
+              margin-bottom: 1.5rem;
             }
           }
         `}
