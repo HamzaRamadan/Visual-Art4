@@ -1,12 +1,16 @@
-import SectionTitle from '../components/layout/SectionTitle';
-import { useLanguage } from '../context/LanguageContext';
-import { aboutTranslations } from '../utils/aboutTranslations';
-import '../components/sections/AboutUs.css';
+import SectionTitle from "../components/layout/SectionTitle";
+import { useLanguage } from "../context/LanguageContext";
+import { aboutTranslations } from "../utils/aboutTranslations";
+import "../components/sections/AboutUs.css";
 
 const AboutDetailes = () => {
   const { language } = useLanguage();
   const t = (key: string): string => {
-    return aboutTranslations[language as keyof typeof aboutTranslations][key as keyof typeof aboutTranslations.en] || key;
+    return (
+      aboutTranslations[language as keyof typeof aboutTranslations][
+        key as keyof typeof aboutTranslations.en
+      ] || key
+    );
   };
 
   return (
@@ -14,24 +18,23 @@ const AboutDetailes = () => {
       {/* Hero Section */}
       <div className="about-hero">
         <div className="about-hero-image"></div>
-        
       </div>
 
       {/* Content Section */}
       <div className="about-content">
         <div className="container">
-          <SectionTitle title={t('aboutTitle')} />
+          <SectionTitle title={t("aboutTitle")} />
           <div className="about-text">
-            <p>{t('aboutContent')}</p>
+            <p>{t("aboutContent")}</p>
           </div>
           <div className="about-vision-mission">
             <div className="vision-mission-card">
-              <h3>{t('ourVision')}</h3>
-              <p>{t('vision')}</p>
+              <h3>{t("ourVision")}</h3>
+              <p>{t("vision")}</p>
             </div>
             <div className="vision-mission-card">
-              <h3>{t('ourMission')}</h3>
-              <p>{t('mission')}</p>
+              <h3>{t("ourMission")}</h3>
+              <p>{t("mission")}</p>
             </div>
           </div>
         </div>
@@ -44,6 +47,8 @@ const AboutDetailes = () => {
             width: 100%;
             height: 50vh;
             overflow: hidden;
+                margin-top: -100px;
+
           }
 
           .about-hero-image {
@@ -78,9 +83,11 @@ const AboutDetailes = () => {
           @media (max-width: 768px) {
             .about-hero {
               height: 60vh;
+                margin-top: -200px;
             }
             .about-hero-text h1 {
               font-size: 1.8rem;
+              margin-top:'
             }
             .about-text p {
               font-size: 0.95rem;
