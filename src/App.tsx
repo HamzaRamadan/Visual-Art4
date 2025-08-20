@@ -12,10 +12,10 @@ import ProductDetailPage from "./pages/ProductDetail";
 import AboutUs from "./components/sections/AboutUs";
 import AboutDetailes from "./pages/AboutDetailes";
 import ServicesSection from "./components/sections/ServicesSection";
-import ServicesPage from "./pages/ServicesPage/ServicesPage";
 import ServiceDetails from "./components/sections/ServiceDetails";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import News from "./pages/News/News";
+import CompanyProfile from "./pages/CompanyProfile";
 // import AdminPanel from "./admin/AdminPanel";
 
 const App: React.FC = () => {
@@ -30,7 +30,6 @@ const App: React.FC = () => {
               <Route path="/about" element={<AboutUs />} />
               <Route path="/products" element={<ProductsPage />} />
               <Route path="/services" element={<ServicesSection />} />
-              <Route path="/servicess" element={<ServicesPage />} />
               <Route path="/services/:id" element={<ServiceDetails />} />
               <Route path="/services/:id" element={<ServiceDetailPage />} />
               {/* <Route path="/AdminPanel" element={<AdminPanel />} /> */}
@@ -40,6 +39,7 @@ const App: React.FC = () => {
               />
               <Route path="/contact" element={<Contact />} />
               <Route path="/news" element={<News />} />
+              <Route path="/CompanyProfile" element={<CompanyProfile />} />
               <Route path="/AboutDetailes" element={<AboutDetailes />} />
             </Routes>
           </main>

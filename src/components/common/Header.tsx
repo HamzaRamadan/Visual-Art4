@@ -35,11 +35,12 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { path: "/", label: isRTL ? "الرئيسية" : "Home" },
-    { path: "/about", label: isRTL ? "من نحن" : "About Us" },
-    { path: "/servicess", label: isRTL ? "خدماتنا" : "Services" },
+    { path: "/AboutDetailes", label: isRTL ? "من نحن" : "About Us" },
+    { path: "/services", label: isRTL ? "خدماتنا" : "Services" },
     { path: "/products", label: isRTL ? "منتجاتنا" : "Products" },
     { path: "/contact", label: isRTL ? "اتصل بنا" : "Contact" },
     { path: "/news", label: isRTL ? "الاخبار" : "News" },
+    { path: "/CompanyProfile", label: isRTL ? "ملف تعريف الشركة" : "Company Profile" },
     // { path: "/AdminPanel", label: isRTL ? "الادمن" : "AdminPanel" },
   ];
 

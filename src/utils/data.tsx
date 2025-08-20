@@ -177,7 +177,8 @@ treatments, ensuring high quality, fast turnaround, and reduced costs to get you
 export const productsData = {
   ar: [
     {
-      img: "/assets/images/p1.png",
+      img: "/assets/images/14.png",
+      imgList:['/assets/images/14.png', '/assets/images/15.png', '/assets/images/16.png'],
       category: "تغليف الأدوية والمنتجات الصيدلانية",
       title: "تغليف الأدوية والمنتجات الصيدلانية",
       description:
@@ -185,7 +186,8 @@ export const productsData = {
       features: ["علب", "نشرة", "رقائق", "ملصقات"],
     },
     {
-      img: "/assets/images/p2.png",
+      img: "/assets/images/25.png",
+      imgList:['/assets/images/25.png', '/assets/images/26.png', '/assets/images/27.jpg'],
       category: "تغليف المنتجات الغذائية",
       title: "تغليف المنتجات الغذائية",
       description:
@@ -197,7 +199,8 @@ export const productsData = {
       ],
     },
     {
-      img: "/assets/images/p3.png",
+      img: "/assets/images/36.jpg",
+      imgList:['/assets/images/36.jpg', '/assets/images/37.jpg', '/assets/images/38.png'],
       category: "صناديق خاصة",
       title: "صناديق خاصة",
       description:
@@ -209,7 +212,8 @@ export const productsData = {
       ],
     },
     {
-      img: "/assets/images/p1.png",
+      img: "/assets/images/39.jpg",
+      imgList:['/assets/images/39.jpg', '/assets/images/40.jpg', '/assets/images/41.jpg'],
       category: "نوافذ شفافة",
       title: "نوافذ شفافة",
       description:
@@ -217,8 +221,8 @@ export const productsData = {
       features: ["عرض المنتج", "حماية العبوة", "جودة طباعة عالية"],
     },
     {
-      img: "/assets/images/p1.png",
-
+      img: "/assets/images/45.png",
+      imgList:['/assets/images/45.png', '/assets/images/46.png', '/assets/images/47.png'],
       category: "صناديق laminated",
       title: "صناديق laminated",
       description:
@@ -226,8 +230,8 @@ export const productsData = {
       features: ["حماية متقدمة", "مظهر فاخر", "متانة عالية"],
     },
     {
-      img: "/assets/images/p2.png",
-
+      img: "/assets/images/51.png",
+      imgList:['/assets/images/51.png', '/assets/images/52.png', '/assets/images/53.png'],
       category: "الملصقات",
       title: "الملصقات",
       description:
@@ -237,8 +241,8 @@ export const productsData = {
   ],
   en: [
     {
-      img: "/assets/images/p1.png",
-
+      img: "/assets/images/14.png",
+      imgList:['/assets/images/14.png', '/assets/images/15.png', '/assets/images/16.png'],
       category: "Medical & pharmaceutical packaging",
       title: "Medical & pharmaceutical packaging",
       description:
@@ -246,7 +250,8 @@ export const productsData = {
       features: ["boxes", "Leaflet", "foil", "Label"],
     },
     {
-      img: "/assets/images/p2.png",
+      img: "/assets/images/25.png",
+      imgList:['/assets/images/25.png', '/assets/images/26.png', '/assets/images/27.jpg'],
 
       category: "Food Packaging",
       title: "Food Packaging",
@@ -259,7 +264,8 @@ export const productsData = {
       ],
     },
     {
-      img: "/assets/images/p3.png",
+      img: "/assets/images/36.jpg",
+      imgList:['/assets/images/36.jpg', '/assets/images/37.jpg', '/assets/images/38.png'],
 
       category: "Special Boxes",
       title: "Special Boxes",
@@ -272,7 +278,8 @@ export const productsData = {
       ],
     },
     {
-      img: "/assets/images/p1.png",
+      img: "/assets/images/39.jpg",
+      imgList:['/assets/images/39.jpg', '/assets/images/40.jpg', '/assets/images/41.jpg'],
 
       category: "Window Patching",
       title: "Window Patching",
@@ -281,7 +288,8 @@ export const productsData = {
       features: ["product display", "package protection", "high print quality"],
     },
     {
-      img: "/assets/images/p2.png",
+      img: "/assets/images/45.png",
+      imgList:['/assets/images/45.png', '/assets/images/46.png', '/assets/images/47.png'],
 
       category: "Laminated Carton",
       title: "Laminated Carton",
@@ -294,7 +302,8 @@ export const productsData = {
       ],
     },
     {
-      img: "/assets/images/p3.png",
+      img: "/assets/images/51.png",
+      imgList:['/assets/images/51.png', '/assets/images/52.png', '/assets/images/53.png'],
 
       category: "Labels",
       title: "Labels",
@@ -309,18 +318,7 @@ export const productsData = {
   ],
 };
 
-export const teamData = {
-  ar: {
-    title: "فريقــــنا",
-    description:
-      "نجاحنا يبدأ من هنا… من فريق متكامل يجمع بين الخبرة، الكفاءة، والرؤية الواضحة. كوّنا فريق عمل دولي يجمع نخبة من المتخصصين في مجالات الطباعة، التصميم، الجودة، والإنتاج، حيث يعمل كل فرد بشغف واحتراف لتقديم أفضل ما يمكن.",
-  },
-  en: {
-    title: "Our Team",
-    description:
-      "Our success starts here... with an integrated team that combines experience, competence, and a clear vision. We have built an international team of specialists in the fields of printing, design, quality, and production, where each individual works with passion and professionalism to deliver the best possible.",
-  },
-};
+
 
 export const productionCapacityData = {
   ar: {

@@ -100,7 +100,7 @@ const Products: React.FC = () => {
                   </div>
                   <div className="product-content">
                     <h3>{product.title}</h3>
-                    <p>{product.description}</p>
+                    {/* <p>{product.description}</p>
                     <ul className="product-features">
                       {product.features.map((feature, featureIndex) => (
                         <li key={featureIndex}>
@@ -108,7 +108,7 @@ const Products: React.FC = () => {
                           <span>{feature}</span>
                         </li>
                       ))}
-                    </ul>
+                    </ul> */}
                     <Link to={`/products/${product.category}`} className="btn">
                       {language === 'ar' ? 'المزيد' : 'Learn More'}
                     </Link>

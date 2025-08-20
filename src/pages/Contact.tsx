@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLanguageHook } from "../hooks/useLanguage";
+import SectionTitle from "../components/layout/SectionTitle";
 
 const Contact: React.FC = () => {
   const { language } = useLanguageHook();
@@ -86,8 +87,10 @@ const Contact: React.FC = () => {
 
   return (
     <section style={styles.section}>
+      <SectionTitle title={language === 'ar' ? "تواصل معنا" : "Contact Us"} />
       <div style={styles.container}>
         {/* 🧾 Contact Info Card */}
+
         <div style={styles.card}>
           <div style={styles.heading}>
             <img

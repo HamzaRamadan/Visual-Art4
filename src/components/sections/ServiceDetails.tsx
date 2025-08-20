@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { servicesData } from "../../utils/data";
 import { useLanguageHook } from "../../hooks/useLanguage";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const ServiceDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,49 +14,37 @@ const ServiceDetails = () => {
     return <h2>Service not found</h2>;
   }
 
-  const prevImage = () => {
-    setCurrentIndex(
-      currentIndex === 0 ? service.images.length - 1 : currentIndex - 1
-    );
-  };
-
-  const nextImage = () => {
-    setCurrentIndex(
-      currentIndex === service.images.length - 1 ? 0 : currentIndex + 1
-    );
-  };
-
-  // 🔹 هنا: تغيير الصورة تلقائيًا كل 3 ثواني
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === service.images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000);
-
-    return () => clearInterval(interval); // تنظيف الـ interval عند تفكيك المكون
-  }, [service.images.length]);
-
   return (
     <div style={containerStyle}>
       <h1 style={titleStyle}>{service.title}</h1>
 
-      {/* Slider الصور */}
-      <div style={sliderContainerStyle}>
-        <button style={leftArrowStyle} onClick={prevImage}>
-          &#10094;
-        </button>
+      {/* الصورة الرئيسية */}
+      <div style={mainImageContainer}>
         <img
           src={service.images[currentIndex]}
-          alt={`${service.title} ${currentIndex + 1}`}
-          style={sliderImageStyle}
+          alt={service.title}
+          style={mainImageStyle}
         />
-        <button style={rightArrowStyle} onClick={nextImage}>
-          &#10095;
-        </button>
       </div>
 
+      {/* الصور الصغيرة (Thumbnails) */}
+      <div style={thumbnailsContainer}>
+        {service.images.slice(0, 3).map((img, index) => (
+          <div
+            key={index}
+            style={{
+              ...thumbnailBox,
+              border:
+                index === currentIndex ? "3px solid #0a4d8c" : "2px solid #ccc",
+            }}
+            onClick={() => setCurrentIndex(index)}
+          >
+            <img src={img} alt={`Thumbnail ${index + 1}`} style={thumbnailImg} />
+          </div>
+        ))}
+      </div>
+
+      {/* النصوص */}
       <p style={descriptionStyle}>{service.description}</p>
       <p style={detailsStyle}>{service.details}</p>
     </div>
@@ -65,8 +53,9 @@ const ServiceDetails = () => {
 
 export default ServiceDetails;
 
-
+//
 // ====== Styles ======
+//
 const containerStyle: React.CSSProperties = {
   maxWidth: "900px",
   margin: "40px auto",
@@ -86,57 +75,45 @@ const titleStyle: React.CSSProperties = {
   color: "#0a4d8c",
 };
 
-const sliderContainerStyle: React.CSSProperties = {
-  position: "relative",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+const mainImageContainer: React.CSSProperties = {
   marginBottom: "20px",
+  
 };
 
-const sliderImageStyle: React.CSSProperties = {
+const mainImageStyle: React.CSSProperties = {
   width: "100%",
-  maxHeight: "400px",
-  objectFit: "contain", // 🔹 أهم تغيير هنا
-  borderRadius: "8px",
-  transition: "transform 0.3s ease",
+  maxHeight: "350px",
+  objectFit: "contain",
+  borderRadius: "10px",
+  boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
 };
 
-// استايل عام للأسهم
-const arrowStyle: React.CSSProperties = {
-  position: "absolute",
-  top: "50%",
-  transform: "translateY(-50%)",
-  fontSize: "2rem",
-  background: "rgba(0,0,0,0.4)",
-  color: "#fff",
-  border: "none",
-  borderRadius: "50%",
-  width: "45px",
-  height: "45px",
-  cursor: "pointer",
-  userSelect: "none",
+
+const thumbnailsContainer: React.CSSProperties = {
   display: "flex",
-  alignItems: "center",
   justifyContent: "center",
-  transition: "background 0.3s ease",
+  gap: "15px",
+  marginBottom: "25px",
 };
 
-// سهم الشمال
-const leftArrowStyle: React.CSSProperties = {
-  ...arrowStyle,
-  left: "10px",
+const thumbnailBox: React.CSSProperties = {
+  width: "120px",
+  height: "90px",
+  overflow: "hidden",
+  borderRadius: "8px",
+  cursor: "pointer",
+  transition: "transform 0.3s ease, border 0.3s ease",
 };
 
-// سهم اليمين
-const rightArrowStyle: React.CSSProperties = {
-  ...arrowStyle,
-  right: "10px",
+const thumbnailImg: React.CSSProperties = {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
 };
 
 const descriptionStyle: React.CSSProperties = {
   fontSize: "1.3rem",
-  fontWeight:"bold",
+  fontWeight: "bold",
   marginBottom: "15px",
   color: "#333",
 };
@@ -146,4 +123,3 @@ const detailsStyle: React.CSSProperties = {
   color: "#666",
   whiteSpace: "pre-line",
 };
-

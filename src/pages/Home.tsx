@@ -9,6 +9,7 @@ import StaticImage from "../components/layout/StaticImage";
 import StaticImage2 from "../components/layout/StaticImage2";
 import Contact from "./Contact";
 import Zepra from "../components/sections/Zepra";
+import News from "./News/News";
 
 const Home: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const Home: React.FC = () => {
       <Zepra />
       <ProductionCapacity />
       <Logistics />
+      <News />
       <Contact />
     </>
   );

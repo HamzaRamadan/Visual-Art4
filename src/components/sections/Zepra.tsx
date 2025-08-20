@@ -21,15 +21,9 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexDirection: 'column',
     overflow: 'hidden',
   },
-  // blueSpaceTop: {
-  //   height: '80px',
-  // },
-  // image: {
-  //   width: '100%',height:'100vh',
-  //   flex:'1'
-  // },
-  // blueSpaceBottom: {
-  //   height: '80px',
-  // },
+   image: {
+    width: '100%',
+    height: '100%',
+  },
 };
 

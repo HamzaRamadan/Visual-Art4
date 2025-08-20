@@ -1,5 +1,6 @@
 // types/product.ts
 export interface Product {
+  imgList: any;
   img: string;
   category: string;
   title: string;

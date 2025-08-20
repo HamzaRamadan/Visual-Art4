@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const StaticImage: React.FC = () => {
   const images = [
     "/assets/images/path.png",
-    "/assets/images/KBA.jpg",
+    // "/assets/images/KBA.jpg",
     "/assets/images/p1.png",
   ];
 

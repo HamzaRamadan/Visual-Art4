@@ -1,5 +1,6 @@
 import './News.css';
 import { useLanguageHook } from '../../hooks/useLanguage';
+import SectionTitle from '../../components/layout/SectionTitle';
 
 const newsCards = [
   {
@@ -44,6 +45,8 @@ const News = () => {
   return (
     <div className={`news-page ${isRTL ? 'rtl' : 'ltr'}`}>
       {/* 🔹 الفيديو الرئيسي */}
+      <SectionTitle title={language === 'ar' ? 'الاخبار' : 'News '} />
+
       <div className="news-container">
         <div className="news-text">
           <p>{text.date}</p>
@@ -58,6 +61,7 @@ const News = () => {
         </div>
       </div>
 
+
       {/* 🔹 كروت الأخبار */}
       <div className="news-cards">
         {newsCards.map((news) => (
@@ -67,7 +71,7 @@ const News = () => {
               <h3>{isRTL ? news.titleAr : news.titleEn}</h3>
               <p>{isRTL ? news.descriptionAr : news.descriptionEn}</p>
               <span className="news-card-date">{news.date}</span>
-              <button className="read-more-btn">{text.button}</button>
+              {/* <button className="read-more-btn">{text.button}</button> */}
             </div>
           </div>
         ))}
