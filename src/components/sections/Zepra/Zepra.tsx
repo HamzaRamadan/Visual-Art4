@@ -1,4 +1,3 @@
-import React from "react";
 import "./zepra.css"; // ← إمبورت لملف الاستايلات
 
 const Zepra = () => {
