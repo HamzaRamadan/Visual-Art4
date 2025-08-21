@@ -4,7 +4,6 @@ import { useLanguageHook } from '../../../hooks/useLanguage';
 import { productionCapacityData } from '../../../utils/data';
 import SectionTitle from '../../layout/SectionTitle';
 
-// ✅ hook جديد: يراقب العنصر ويرجع isVisible
 const useInView = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -15,10 +14,10 @@ const useInView = () => {
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // ✅ يحصل مرة واحدة بس
+          observer.disconnect();
         }
       },
-      { threshold: 0.3 } // يبدأ الأنيميشن لما 30% من العنصر يبان
+      { threshold: 0.3 } 
     );
 
     observer.observe(ref.current);
@@ -29,7 +28,6 @@ const useInView = () => {
   return { ref, isVisible };
 };
 
-// ✅ component للعداد المتحرك
 type AnimatedNumberProps = {
   target: number;
   suffix?: string;
@@ -43,7 +41,7 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({ target, suffix, fixedTe
   useEffect(() => {
     if (!trigger) return;
 
-    const duration = 2000; // 2 ثانية
+    const duration = 2000; // 2 second
     const stepTime = 1000 / 60;
     const totalSteps = duration / stepTime;
     let currentStep = 0;
@@ -73,7 +71,7 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({ target, suffix, fixedTe
 const ProductionCapacity: React.FC = () => {
   const { language } = useLanguageHook();
   const isRTL = language === 'ar';
-  const { ref: capacityRef, isVisible } = useInView(); // ✅ استخدم hook الجديد
+  const { ref: capacityRef, isVisible } = useInView(); 
 
   const capacity = productionCapacityData[language];
 

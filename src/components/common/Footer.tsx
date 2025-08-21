@@ -160,7 +160,7 @@ const Footer: React.FC = () => {
       padding: 0,
       marginTop: "10px",
       display: "grid",
-      gridTemplateColumns: "1fr 1fr", // 2 عمود على الموبايل
+      gridTemplateColumns: "1fr 1fr", 
       gap: "10px 20px",
       justifyItems: "center",
     }}

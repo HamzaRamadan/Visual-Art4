@@ -68,7 +68,6 @@
   object-fit: cover;
 }
 
-/* كروت الأخبار */
 .news-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

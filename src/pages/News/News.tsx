@@ -44,7 +44,7 @@ const News = () => {
 
   return (
     <div className={`news-page ${isRTL ? 'rtl' : 'ltr'}`}>
-      {/* 🔹 الفيديو الرئيسي */}
+      {/*  الفيديو  */}
       <SectionTitle title={language === 'ar' ? 'الاخبار' : 'News '} />
 
       <div className="news-container">
@@ -62,7 +62,6 @@ const News = () => {
       </div>
 
 
-      {/* 🔹 كروت الأخبار */}
       <div className="news-cards">
         {newsCards.map((news) => (
           <div className="news-card" key={news.id}>

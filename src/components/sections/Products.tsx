@@ -6,9 +6,7 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import SectionTitle from '../layout/SectionTitle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
-// استيراد CSS الخاص بـ Swiper
 import '../../../public/assets/styles/swiper.css';
-// import 'swiper/css/navigation';
 
 const Products: React.FC = () => {
   const { language } = useLanguageHook();
@@ -18,7 +16,6 @@ const Products: React.FC = () => {
   const [swiperKey, setSwiperKey] = useState(0);
   const [slidesPerView, setSlidesPerView] = useState(3);
 
-  // تحديث عدد الشرائح حسب حجم الشاشة
   useEffect(() => {
     const updateSlidesPerView = () => {
       if (window.innerWidth >= 992) {
@@ -118,7 +115,6 @@ const Products: React.FC = () => {
             ))}
           </Swiper>
           
-          {/* أسهم مخصصة */}
           <div className="swiper-button-prev-custom"></div>
           <div className="swiper-button-next-custom"></div>
         </div>

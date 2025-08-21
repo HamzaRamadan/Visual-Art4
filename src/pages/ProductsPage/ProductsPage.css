@@ -1,12 +1,8 @@
-/* products-page.css - الكود الكامل */
-
-/* إخفاء شريط التمرير للصفحة بأكملها */
 .products-page {
   padding: 60px 0;
   background-color: #f8f9fa;
   height: 100vh;
   overflow-y: auto;
-  /* إخفاء شريط التمرير */
   -ms-overflow-style: none;  /* IE و Edge */
   scrollbar-width: none;     /* Firefox */
 }
@@ -16,7 +12,6 @@
   display: none;
 }
 
-/* قسم الفلاتر */
 .products-filter {
   margin-bottom: 50px;
   text-align: center;
@@ -31,13 +26,11 @@
   padding: 8px;
   border-radius: 50px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  /* إخفاء شريط التمرير الأفقي */
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-/* إخفاء شريط التمرير لمتصفحات WebKit */
 .filter-buttons::-webkit-scrollbar {
   display: none;
 }
@@ -84,16 +77,13 @@
   box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
 
-/* شبكة المنتجات */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
-  /* إخفاء أي شريط تمرير */
   overflow: hidden;
 }
 
-/* تأثيرات عند التمرير */
 .product-card {
   opacity: 0;
   transform: translateY(30px);
@@ -114,7 +104,7 @@
   }
 }
 
-/* رسالة عدم وجود منتجات */
+/*  عدم وجود منتجات */
 .no-products {
   text-align: center;
   padding: 60px 0;

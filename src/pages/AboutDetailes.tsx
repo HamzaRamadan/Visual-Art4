@@ -17,15 +17,14 @@ const AboutDetailes = () => {
 
   return (
     <div className="page about-page">
-      {/* Hero Section مع تأثير البارالكس المحسّن */}
       <Parallax
         bgImage="/assets/images/aboutUs.jpeg"
-        strength={600} // زدت قوة التأثير
+        strength={600} 
         bgImageStyle={{
           width: "100%",
           height: "auto",
           objectFit: "cover",
-          minHeight: "100%", // ضمان عدم القص
+          minHeight: "100%", 
         }}
         contentClassName="parallax-content"
       >
@@ -58,7 +57,7 @@ const AboutDetailes = () => {
           .about-hero {
             position: relative;
             width: 100%;
-            height: 75vh; /* زدت الارتفاع للشاشات الكبيرة */
+            height: 75vh; 
             margin-top: -100px;
             display: flex;
             align-items: center;
@@ -66,14 +65,12 @@ const AboutDetailes = () => {
             overflow: hidden;
           }
           
-          /* محتوى البارالكس */
           .parallax-content {
             display: flex;
             align-items: center;
             justify-content: center;
           }
           
-          /* محتوى الصفحة */
         .about-content {
   position: relative;
   z-index: 1;
@@ -85,7 +82,6 @@ const AboutDetailes = () => {
 }
 
           
-          /* بطاقات الرؤية والرسالة */
           .vision-mission-card {
             background: #f8f9fa;
             padding: 2.5rem;
@@ -111,12 +107,12 @@ const AboutDetailes = () => {
             line-height: 1.7;
           }
           
-          /* 📱 للموبايل فقط */
+          /*  للموبايل فقط */
           @media screen and (max-width: 767px) {
             .about-hero {
-              height: 60vh; /* زدت الارتفاع للموبايل */
+              height: 60vh;
               margin-top: -120px;
-              margin-bottom: -20px; /* ← شيلت المسافة تحت الصورة */
+              margin-bottom: -20px; 
             }
             
             .vision-mission-card {
@@ -129,14 +125,13 @@ const AboutDetailes = () => {
             }
           }
           
-          /* 🖥️ للشاشات الكبيرة جدًا */
+          /*  للشاشات الكبيرة جدًا */
           @media screen and (min-width: 1200px) {
             .about-hero {
-              height: 80vh; /* ارتفاع أكبر للشاشات الكبيرة جدًا */
+              height: 80vh; 
             }
           }
           
-          /* حركة خفيفة للنص */
           @keyframes fadeInUp {
             from {
               opacity: 0;

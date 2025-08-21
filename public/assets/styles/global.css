@@ -25,7 +25,6 @@
 
 html {
   overflow-x: hidden;
-  /* منع التمرير الأفقي في الصفحة بأكملها */
 }
 body, html {
   margin: 0;
@@ -39,11 +38,8 @@ body {
   color           : var(--text-color);
   line-height     : 1.6;
   overflow-x      : hidden;
-  /* منع التمرير الأفقي */
   width           : 100%;
-  /* عرض كامل */
   position        : relative;
-  /* لضمان وضع العناصر بشكل صحيح */
 }
 
 .container {
@@ -51,17 +47,13 @@ body {
   margin    : 0 auto;
   padding   : 0 var(--padding);
   width     : 100%;
-  /* عرض كامل */
   overflow-x: hidden;
-  /* منع التمرير الأفقي */
 }
 
 .section {
   padding   : 80px 0;
   width     : 100%;
-  /* عرض كامل */
   overflow-x: hidden;
-  /* منع التمرير الأفقي */
 }
 
 .section-title {
@@ -117,9 +109,7 @@ body {
   transition      : var(--transition);
   text-decoration : none;
   max-width       : 100%;
-  /* أقصى عرض 100% */
   overflow        : hidden;
-  /* إخفاء أي تجاوز */
 }
 
 .btn:hover {
@@ -146,9 +136,7 @@ body {
   overflow        : hidden;
   transition      : var(--transition);
   width           : 100%;
-  /* عرض كامل */
   max-width       : 100%;
-  /* أقصى عرض 100% */
 }
 
 .card:hover {
@@ -160,7 +148,6 @@ body {
   display: grid;
   gap    : 30px;
   width  : 100%;
-  /* عرض كامل */
 }
 
 .grid-2 {
@@ -341,9 +328,7 @@ body {
   color           : var(--white);
   padding         : 40px 0 15px;
   width           : 100%;
-  /* عرض كامل */
   overflow        : hidden;
-  /* إخفاء أي تجاوز */
 }
 
 .footer-content {
@@ -352,9 +337,7 @@ body {
   gap                  : 30px;
   margin-bottom        : 20px;
   width                : 100%;
-  /* عرض كامل */
   max-width            : 100%;
-  /* أقصى عرض 100% */
 }
 
 .footer-section h3 {
@@ -363,11 +346,8 @@ body {
   position      : relative;
   padding-bottom: 8px;
   width         : 100%;
-  /* عرض كامل */
   max-width     : 100%;
-  /* أقصى عرض 100% */
   overflow-wrap : break-word;
-  /* التفاف النص الطويل */
 }
 
 .footer-section h3::after {
@@ -383,13 +363,11 @@ body {
 .footer-section ul {
   list-style: none;
   width     : 100%;
-  /* عرض كامل */
 }
 
 .footer-section ul li {
   margin-bottom: 5px;
   width        : 100%;
-  /* عرض كامل */
 }
 
 .footer-section ul li a {
@@ -398,13 +376,9 @@ body {
   transition     : var(--transition);
   font-size      : 0.9rem;
   display        : block;
-  /* جعلها عنصر كتلة */
   width          : 100%;
-  /* عرض كامل */
   max-width      : 100%;
-  /* أقصى عرض 100% */
   overflow-wrap  : break-word;
-  /* التفاف النص الطويل */
 }
 
 .footer-section ul li a:hover {
@@ -416,7 +390,6 @@ body {
   align-items  : flex-start;
   margin-bottom: 10px;
   width        : 100%;
-  /* عرض كامل */
 }
 
 .contact-info li i {
@@ -424,7 +397,6 @@ body {
   font-size   : 1.1rem;
   margin-top  : 3px;
   flex-shrink : 0;
-  /* منع التصغير */
 }
 
 .footer-bottom {
@@ -433,11 +405,8 @@ body {
   border-top   : 1px solid rgba(255, 255, 255, 0.1);
   font-size    : 0.85rem;
   width        : 100%;
-  /* عرض كامل */
   max-width    : 100%;
-  /* أقصى عرض 100% */
   overflow-wrap: break-word;
-  /* التفاف النص الطويل */
 }
 
 
@@ -450,7 +419,6 @@ body {
   align-items: center;
   overflow   : hidden;
   width      : 100%;
-  /* عرض كامل */
 }
 
 .hero-background {
@@ -473,13 +441,9 @@ body {
   color     : var(--white);
   z-index   : 1;
   width     : 100%;
-  /* عرض كامل */
   max-width : 100%;
-  /* أقصى عرض 100% */
   padding   : 0 20px;
-  /* إضافة مساحة جانبية */
   box-sizing: border-box;
-  /* احتساب padding في العرض */
 }
 
 .hero-title {
@@ -487,11 +451,8 @@ body {
   font-weight  : 700;
   margin-bottom: 20px;
   width        : 100%;
-  /* عرض كامل */
   max-width    : 100%;
-  /* أقصى عرض 100% */
   overflow-wrap: break-word;
-  /* التفاف النص الطويل */
 }
 
 .hero-subtitle {
@@ -500,31 +461,23 @@ body {
   margin-bottom: 20px;
   color        : var(--secondary-color);
   width        : 100%;
-  /* عرض كامل */
   max-width    : 100%;
-  /* أقصى عرض 100% */
   overflow-wrap: break-word;
-  /* التفاف النص الطويل */
 }
 
 .hero-description {
   font-size    : 1.1rem;
   margin-bottom: 30px;
   width        : 100%;
-  /* عرض كامل */
   max-width    : 100%;
-  /* أقصى عرض 100% */
   overflow-wrap: break-word;
-  /* التفاف النص الطويل */
 }
 
 .hero-buttons {
   display  : flex;
   gap      : 15px;
   width    : 100%;
-  /* عرض كامل */
   flex-wrap: wrap;
-  /* السماح بالتفاف */
 }
 
 /* Products Section Styles */
@@ -532,16 +485,13 @@ body {
   display       : flex;
   flex-direction: column;
   width         : 100%;
-  /* عرض كامل */
   max-width     : 100%;
-  /* أقصى عرض 100% */
 }
 
 .product-image {
   height  : 200px;
   overflow: hidden;
   width   : 100%;
-  /* عرض كامل */
 }
 
 .product-image img {
@@ -561,21 +511,15 @@ body {
   display       : flex;
   flex-direction: column;
   width         : 100%;
-  /* عرض كامل */
   max-width     : 100%;
-  /* أقصى عرض 100% */
   box-sizing    : border-box;
-  /* احتساب padding في العرض */
 }
 
 .product-content h3 {
   margin-bottom: 10px;
   width        : 100%;
-  /* عرض كامل */
   max-width    : 100%;
-  /* أقصى عرض 100% */
   overflow-wrap: break-word;
-  /* التفاف النص الطويل */
 }
 
 .product-features {
@@ -583,7 +527,6 @@ body {
   margin    : 15px 0;
   flex      : 1;
   width     : 100%;
-  /* عرض كامل */
 }
 
 .product-features li {
@@ -591,7 +534,6 @@ body {
   align-items  : flex-start;
   margin-bottom: 8px;
   width        : 100%;
-  /* عرض كامل */
 }
 
 .product-features li i {
@@ -599,18 +541,17 @@ body {
   margin-right: 10px;
   margin-top  : 5px;
   flex-shrink : 0;
-  /* منع التصغير */
 }
 
 .product-content .btn {
   margin-top: auto;
   align-self: center;
-  background-color: var(--primary-color); /* اللون الجديد */
-  color: #ffffff;            /* لون الخط */
+  background-color: var(--primary-color); 
+  color: #ffffff;           
 }
 
 .product-content .btn:hover {
-  background-color: #ffc72c; /* لون عند التمرير */
+  background-color: #ffc72c; 
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -621,11 +562,8 @@ body {
 .contact-card .card {
   padding   : 30px;
   width     : 100%;
-  /* عرض كامل */
   max-width : 100%;
-  /* أقصى عرض 100% */
   box-sizing: border-box;
-  /* احتساب padding في العرض */
 }
 
 .contact-item {
@@ -633,9 +571,7 @@ body {
   align-items  : center;
   margin-bottom: 15px;
   width        : 100%;
-  /* عرض كامل */
   max-width    : 100%;
-  /* أقصى عرض 100% */
 }
 
 .contact-item i {
@@ -643,7 +579,6 @@ body {
   margin-right: 15px;
   color       : var(--primary-color);
   flex-shrink : 0;
-  /* منع التصغير */
 }
 
 /* Scroll to Top Button Styles */
@@ -729,11 +664,8 @@ body {
   .header-content {
     position : relative;
     width    : 100%;
-    /* عرض كامل */
     max-width: 100%;
-    /* أقصى عرض 100% */
     overflow : hidden;
-    /* إخفاء أي تجاوز */
   }
 
   .nav {
@@ -763,20 +695,15 @@ body {
     display       : flex;
     flex-direction: column;
     width         : 100%;
-    /* عرض كامل */
     max-width     : 100%;
-    /* أقصى عرض 100% */
   }
 
   .nav-links li {
     padding      : 15px 20px;
     border-bottom: 1px solid #eee;
     width        : 100%;
-    /* عرض كامل */
     max-width    : 100%;
-    /* أقصى عرض 100% */
     box-sizing   : border-box;
-    /* احتساب padding في العرض */
   }
 
   .nav-links a {
@@ -785,16 +712,11 @@ body {
     font-size      : 16px;
     display        : block;
     width          : 100%;
-    /* عرض كامل */
     max-width      : 100%;
-    /* أقصى عرض 100% */
     transition     : var(--transition);
     word-wrap      : break-word;
-    /* التفاف النص الطويل */
     overflow-wrap  : break-word;
-    /* دعم أفضل للتفاف النص */
     box-sizing     : border-box;
-    /* احتساب padding في العرض */
   }
 
   .nav-links a:hover {
@@ -847,56 +769,43 @@ body {
   /* إضافة تعديلات إضافية للشاشات الصغيرة جداً */
   .container {
     padding: 0 15px;
-    /* تقليل المساحة الجانبية */
   }
 
   .hero-content {
     padding: 0 15px;
-    /* تقليل المساحة الجانبية */
   }
 
   .product-content {
     padding: 15px;
-    /* تقليل المسافة الداخلية */
   }
 
   .service-card {
     padding: 20px;
-    /* تقليل المسافة الداخلية */
   }
 
   .member-info {
     padding: 15px;
-    /* تقليل المسافة الداخلية */
   }
 
   .contact-card .card {
     padding: 20px;
-    /* تقليل المسافة الداخلية */
   }
 }
 
 /* في global.css أو ملف CSS خاص بالمنتجات */
-/* الحاوية الرئيسية */
 .products-slider-wrapper {
   position : relative;
   padding  : 0 60px;
   width    : 100%;
-  /* عرض كامل */
   max-width: 100%;
-  /* أقصى عرض 100% */
   overflow : hidden;
-  /* إخفاء أي تجاوز */
 }
 
 .products-swiper {
   padding  : 10px 0;
   width    : 100%;
-  /* عرض كامل */
   max-width: 100%;
-  /* أقصى عرض 100% */
   overflow : hidden;
-  /* إخفاء أي تجاوز */
 }
 
 /* الأسهم المخصصة - الحجم العادي */
@@ -963,11 +872,8 @@ body {
 .products .swiper-slide {
   padding   : 0 15px;
   width     : 100%;
-  /* عرض كامل */
   max-width : 100%;
-  /* أقصى عرض 100% */
   box-sizing: border-box;
-  /* احتساب padding في العرض */
 }
 
 /* للغة العربية */
@@ -1131,6 +1037,5 @@ body {
 
   .product-features {
     display: none;
-    /* إخفاء المميزات على الشاشات الصغيرة جداً */
   }
 }

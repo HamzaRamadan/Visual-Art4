@@ -1,4 +1,3 @@
-/* الحاوية */
 .zepra-container {
   width: 100%;
   height: 80vh;              
@@ -8,7 +7,6 @@
   overflow: hidden;
 }
 
-/* الصورة */
 .zepra-image {
   width: 95%;
   height: 100%;
@@ -16,7 +14,7 @@
   border-radius: 10px;
 }
 
-/* 📱 Media Queries للموبايل */
+/*  Media Queries للموبايل */
 @media (max-width: 768px) {
   .zepra-container {
     height: 50vh;         

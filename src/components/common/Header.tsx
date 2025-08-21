@@ -4,10 +4,6 @@ import { useLanguageHook } from "../../hooks/useLanguage";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { companyData } from "../../utils/data";
 
-//  بقولك عايزك ف حته مهمه اوى اوى بقى  عايز اعمل DashBord  جامده للمشروع ده اقدر من خلالها اضيف منتج واعدلو وحذفو وشويه تحكمات ف الموقع كلو بقى تقدر تعمل حاجه زى كده
-
-// app / HomePage  / ProductPage  / ProductDetailPage
-
 const Header: React.FC = () => {
   const { language } = useLanguageHook();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +37,6 @@ const Header: React.FC = () => {
     { path: "/contact", label: isRTL ? "اتصل بنا" : "Contact" },
     { path: "/news", label: isRTL ? "الاخبار" : "News" },
     { path: "/CompanyProfile", label: isRTL ? "ملف تعريف الشركة" : "Company Profile" },
-    // { path: "/AdminPanel", label: isRTL ? "الادمن" : "AdminPanel" },
   ];
 
   return (

@@ -6,9 +6,9 @@ import Footer from "./components/common/Footer";
 import ScrollToTop from "./components/common/ScrollToTop";
 import Home from "./pages/Home";
 
-import ProductsPage from "./pages/ProductsPage";
+import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import Contact from "./pages/Contact";
-import ProductDetailPage from "./pages/ProductDetail";
+import ProductDetailPage from "./pages/ProductDetailPage/ProductDetail";
 import AboutUs from "./components/sections/AboutUs/AboutUs";
 import AboutDetailes from "./pages/AboutDetailes";
 import ServicesSection from "./components/sections/ServicesSection/ServicesSection";
@@ -16,7 +16,6 @@ import ServiceDetails from "./components/sections/ServiceDetails/ServiceDetails"
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import News from "./pages/News/News";
 import CompanyProfile from "./pages/CompanyProfile";
-// import AdminPanel from "./admin/AdminPanel";
 
 const App: React.FC = () => {
   return (
@@ -32,7 +31,6 @@ const App: React.FC = () => {
               <Route path="/services" element={<ServicesSection />} />
               <Route path="/services/:id" element={<ServiceDetails />} />
               <Route path="/services/:id" element={<ServiceDetailPage />} />
-              {/* <Route path="/AdminPanel" element={<AdminPanel />} /> */}
               <Route
                 path="/products/:category"
                 element={<ProductDetailPage />}

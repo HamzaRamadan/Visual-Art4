@@ -11,7 +11,7 @@ const Logistics: React.FC = () => {
   const logisticsRef = useScrollAnimation();
   const logistics = logisticsData[language];
 
-  // 🟢 state للأرقام المتحركة
+  //  state للأرقام المتحركة
   const [stats, setStats] = useState({
     warehouses: 0,
     trucks: 0,
@@ -24,7 +24,7 @@ const Logistics: React.FC = () => {
         const [entry] = entries;
         if (entry.isIntersecting) {
           animateNumbers();
-          observer.disconnect(); // ✅ عشان ميكررش
+          observer.disconnect(); 
         }
       },
       { threshold: 0.4 }
@@ -37,7 +37,7 @@ const Logistics: React.FC = () => {
     return () => observer.disconnect();
   }, [logisticsRef]);
 
-  // 🟢 فانكشن الانيميشن
+  //  فانكشن الانيميشن
   const animateNumbers = () => {
     animateValue("warehouses", 0, 50, 1500);
     animateValue("trucks", 0, 200, 2000);
@@ -74,12 +74,10 @@ const Logistics: React.FC = () => {
         <SectionTitle title={logistics.title} />
 
         <div className="logistics-content">
-          {/* الوصف */}
           <div className="logistics-text">
             <p>{logistics.description}</p>
           </div>
 
-          {/* المميزات */}
           <div className="logistics-features">
             <ul>
               {logistics.features.map((feature, index) => (

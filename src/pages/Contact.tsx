@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
   if (!bgRef.current || !sectionRef.current) return;
 
   const rect = sectionRef.current.getBoundingClientRect();
-  const y = Math.max(0, -rect.top); // ما نخليش الخلفية تتحرك برا السكشن
+  const y = Math.max(0, -rect.top); 
   bgRef.current.style.backgroundPosition = `center ${y}px`;
 };
 
@@ -60,7 +60,6 @@ const Contact: React.FC = () => {
       ref={sectionRef as any}
       className={`contact-section ${isRTL ? "rtl" : "ltr"}`}
     >
-      {/* الخلفية */}
       <div ref={bgRef} className="contact-bg" aria-hidden="true" />
 
       <div className="contact-wrapper">
@@ -139,7 +138,7 @@ const Contact: React.FC = () => {
         .contact-section {
           position: relative;
           padding: 4rem 1rem;
-          overflow: hidden; /* يمنع المحتوى من الخروج */
+          overflow: hidden;
           z-index: 1;
           width: 100%;
           display: flex;
@@ -181,7 +180,7 @@ const Contact: React.FC = () => {
           width: 100%;
           display: flex;
           gap: 2rem;
-          flex-wrap: wrap; /* يخلي البوكسات تتحرك للأسطر بدل ما تخرج برا */
+          flex-wrap: wrap; 
         }
 
         .contact-container.column { flex-direction: column; }

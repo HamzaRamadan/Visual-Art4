@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { servicesData } from "../../../utils/data";
 import { useLanguageHook } from "../../../hooks/useLanguage";
 import { useState } from "react";
-import "./ServiceDetails.css"; // استدعاء ملف الاستايل
+import "./ServiceDetails.css"; 
 
 const ServiceDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -47,7 +47,6 @@ const ServiceDetails = () => {
         ))}
       </div>
 
-      {/* النصوص */}
       <p className="service-description">{service.description}</p>
       <p className="service-details-text">{service.details}</p>
     </div>

@@ -1,4 +1,4 @@
-import "./zepra.css"; // ← إمبورت لملف الاستايلات
+import "./zepra.css"; 
 
 const Zepra = () => {
   return (

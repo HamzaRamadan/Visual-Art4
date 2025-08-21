@@ -1,4 +1,3 @@
-// pages/ServiceDetailPage.tsx
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { useLanguageHook } from "../hooks/useLanguage";
