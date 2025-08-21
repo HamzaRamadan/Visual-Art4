@@ -1,89 +1,101 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
 const StaticImage2 = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
+  const [height, setHeight] = useState(getResponsiveHeight());
+
+  function getResponsiveHeight() {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768 ? '35vh' : '60vh';
+    }
+    return '60vh';
+  }
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!sectionRef.current) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrollPosition = window.scrollY;
-      const sectionTop = rect.top + scrollPosition;
-
-      const newOffset = scrollPosition - sectionTop;
-      setOffset(newOffset);
+      if (containerRef.current && bgRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const elementOffsetTop = rect.top + scrollTop;
+        const parallaxOffset = (scrollTop - elementOffsetTop) * 0.4;
+        setOffset(parallaxOffset);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    const handleResize = () => {
+      setHeight(getResponsiveHeight());
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
 
-  // ✅ ميديا كويري محقونة جوا نفس الملف
-  useEffect(() => {
-    const styleTag = document.createElement("style");
-    styleTag.innerHTML = `
-      .static-image2-container {
-        width: 90%;
-        height: 60vh; /* أصغر من 80vh */
-        margin: 0 auto;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        border-radius: 10px;
-      }
-
-      @media (max-width: 768px) {
-        .static-image2-container {
-          height: 35vh; /* أصغر على الموبايل */
-        }
-      }
-    `;
-    document.head.appendChild(styleTag);
     return () => {
-      document.head.removeChild(styleTag);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className="static-image2-container">
+    <section ref={containerRef} style={{ ...styles.container, height }}>
       <div
+        ref={bgRef}
         style={{
-          ...styles.imageWrapper,
-          transform: `translateY(${offset}px)`,
+          ...styles.background,
+          transform: `translateX(-50%) translateY(${offset}px)`,
         }}
-      >
-        <div style={styles.fixedImage} />
-      </div>
+      />
+      {/* المحتوى لو حبيت تضيفه */}
+      {/* <div style={styles.content}>
+        <h2 style={styles.title}>State-of-the-Art Printing Facility</h2>
+        <p style={styles.subtitle}>Equipped with modern KBA offset technology</p>
+      </div> */}
     </section>
   );
 };
 
 export default StaticImage2;
 
+// 🎨 Styles
 const styles: { [key: string]: React.CSSProperties } = {
-  imageWrapper: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    willChange: "transform",
+  container: {
+    position: 'relative',
+    width: '100%',
+    overflow: 'hidden',
+    minHeight: '200px',
+    transition: 'height 0.3s ease',
   },
-  fixedImage: {
-    width: "100%",
-    height: "100%",
+  background: {
+    position: 'absolute',
+    top: 0,
+    left: '50%',              // 🌟 وسط الصورة أفقياً
+    height: '100%',
+    width: '90%',             // 🌟 عرض أصغر شويه
     backgroundImage: 'url("/assets/images/KBA.jpg")',
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    WebkitTransform: "translateZ(0)",
-    WebkitBackfaceVisibility: "hidden",
-    backfaceVisibility: "hidden",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    willChange: 'transform',
+    transition: 'transform 0.1s linear',
+  },
+  content: {
+    position: 'relative',
+    zIndex: 1,
+    textAlign: 'center',
+    color: '#fff',
+    padding: '100px 20px',
+  },
+  title: {
+    fontSize: '2.5rem',
+    fontWeight: '700',
+    marginBottom: '15px',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+  },
+  subtitle: {
+    fontSize: '1.5rem',
+    fontWeight: '500',
+    color: '#f39c12',
+    textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
   },
 };
