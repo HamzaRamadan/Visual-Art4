@@ -41,12 +41,13 @@ const CompanyProfile = () => {
 
         {/* عرض الملف */}
         <div className="pdf-viewer-container">
-          <iframe
-            src="/assets/Co Profile 70 Pages 03.pdf#toolbar=0"
-            className="pdf-viewer"
-            title={isRTL ? "معاينة ملف الشركة" : "Company Profile Preview"}
-          />
-        </div>
+  <img
+    src="/assets/images/profileCompany.png"
+    alt={isRTL ? "صورة ملف الشركة" : "Company Profile Image"}
+    className="pdf-viewer"
+  />
+</div>
+
       </div>
     </div>
   );

@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const StaticImage2 = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      
+      const rect = sectionRef.current.getBoundingClientRect();
+      const scrollPosition = window.scrollY;
+      const sectionTop = rect.top + scrollPosition;
+      
+      // حساب الإزاحة المطلوبة للصورة
+      const newOffset = scrollPosition - sectionTop;
+      setOffset(newOffset);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // تشغيل مرة واحدة عند التحميل
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section style={styles.container}>
+    <section ref={sectionRef} style={styles.container}>
+      <div style={{ ...styles.imageWrapper, transform: `translateY(${offset}px)` }}>
+        <div style={styles.fixedImage} />
+      </div>
       {/* <div style={styles.overlay}></div> */}
       {/* <div style={styles.content}>
         <h2 style={styles.title}>State-of-the-Art Printing Facility</h2>
@@ -18,17 +43,32 @@ export default StaticImage2;
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
     width: '100%',
-    height: '60vh', // ⬅️ ارتفاع أصغر زي الكود الأصلي
-    backgroundImage: 'url("/assets/images/KBA.jpg")',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundAttachment: 'fixed', // ✨ الصورة تفضل ثابته ورا
+    height: '80vh',
     position: 'relative',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
+  },
+  imageWrapper: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    willChange: 'transform', // تحسين الأداء
+  },
+  fixedImage: {
+    width: '100%',
+    height: '100%',
+    backgroundImage: 'url("/assets/images/KBA.jpg")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    // إصلاحات خاصة بـ iOS
+    WebkitTransform: 'translateZ(0)',
+    WebkitBackfaceVisibility: 'hidden',
+    backfaceVisibility: 'hidden',
   },
   overlay: {
     position: 'absolute',

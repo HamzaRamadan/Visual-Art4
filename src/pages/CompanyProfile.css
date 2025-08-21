@@ -13,7 +13,7 @@
 .Buttons a{
     margin-left: 20px;
 }
-.Company h1{
+.Company {
     margin-bottom: 10px;
 }
 .Company p{
@@ -22,14 +22,45 @@
 
 .pdf-viewer-container {
   @apply bg-white rounded-2xl shadow-2xl overflow-hidden mx-auto;
-    margin: auto;
-  width: 100%;      /* 👈 العرض */
-  height: 60vh;    /* 👈 الارتفاع */
-  max-width: 1200px; /* 👈 أقصى عرض */
+  margin: auto;
+  width: 100%;
+  height: auto; /* 👈 نخليها أوتو عشان الصورة تتحكم */
+  max-width: 1200px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pdf-viewer {
-  width: 80%;
-  height: 100%;
-  border: none; /* يشيل البوردر الافتراضي */
+  width: 100%;
+  height: auto;
+  max-height: 70vh; /* 👈 ما تكبرش زيادة */
+  object-fit: contain; /* 👈 الصورة تبان كاملة بدون قص */
+  border: none;
+  display: block;
+}
+
+/* 📱 موبايل */
+@media (max-width: 767px) {
+  .pdf-viewer {
+    width: 100%;   /* 👈 تملى الشاشة */
+    max-height: 50vh;
+  }
+}
+
+/* 💻 تابلت */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .pdf-viewer {
+    width: 90%; 
+    max-height: 60vh;
+  }
+}
+
+/* 🖥️ ديسكتوب */
+@media (min-width: 1025px) {
+  .pdf-viewer {
+    width: 80%; 
+    max-height: 70vh;
+  }
 }

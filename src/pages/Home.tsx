@@ -10,13 +10,17 @@ import StaticImage2 from "../components/layout/StaticImage2";
 import Contact from "./Contact";
 import Zepra from "../components/sections/Zepra";
 import News from "./News/News";
+// import { ParallaxProvider } from "react-scroll-parallax";
 
 const Home: React.FC = () => {
   return (
     <>
       <HeroSection />
       <AboutUs />
+      {/* <ParallaxProvider> */}
+
       <StaticImage2 />
+      {/* </ParallaxProvider> */}
       <Products />
       <StaticImage />
       <ServicesSection />

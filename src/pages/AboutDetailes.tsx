@@ -2,9 +2,11 @@ import SectionTitle from "../components/layout/SectionTitle";
 import { useLanguage } from "../context/LanguageContext";
 import { aboutTranslations } from "../utils/aboutTranslations";
 import "../components/sections/AboutUs.css";
+import { Parallax } from "react-parallax";
 
 const AboutDetailes = () => {
   const { language } = useLanguage();
+
   const t = (key: string): string => {
     return (
       aboutTranslations[language as keyof typeof aboutTranslations][
@@ -15,10 +17,20 @@ const AboutDetailes = () => {
 
   return (
     <div className="page about-page">
-      {/* Hero Section */}
-      <div className="about-hero">
-        <div className="about-hero-text"></div>
-      </div>
+      {/* Hero Section مع تأثير البارالكس المحسّن */}
+      <Parallax
+        bgImage="/assets/images/aboutUs.jpeg"
+        strength={600} // زدت قوة التأثير
+        bgImageStyle={{
+          width: "100%",
+          height: "auto",
+          objectFit: "cover",
+          minHeight: "100%", // ضمان عدم القص
+        }}
+        contentClassName="parallax-content"
+      >
+        <div className="about-hero">{/* تم حذف طبقة التدرج فوق الصورة */}</div>
+      </Parallax>
 
       {/* Content Section */}
       <div className="about-content">
@@ -42,47 +54,100 @@ const AboutDetailes = () => {
 
       <style>
         {`
-    .about-hero {
-      position: relative;
-      width: 100%;
-      height: 70vh;
-      margin-top: -100px;
-      background-image: url('/assets/images/aboutUs.jpeg');
-      background-size: cover;      
-      background-repeat: no-repeat; 
-      background-position: center;
-      background-attachment: fixed; /* ✅ شغال للديسكتوب */
-    }
+          /* الإعدادات الأساسية للهيرو */
+          .about-hero {
+            position: relative;
+            width: 100%;
+            height: 75vh; /* زدت الارتفاع للشاشات الكبيرة */
+            margin-top: -100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+          }
+          
+          /* محتوى البارالكس */
+          .parallax-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          /* محتوى الصفحة */
+        .about-content {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  padding: 0 0 4rem 0; 
+  /* box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1); */ /* شيلنا الشادو */
+  margin-top: -40px;
+  
+}
 
-    .about-hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-      text-align: center;
-    }
-
-    .about-content {
-      position: relative;
-      z-index: 1;
-      background: #fff;
-      padding-top: 2rem;
-    }
-
-    /* 📱 للموبايل فقط */
-    @media screen and (max-width: 767px) {
-      .about-hero {
-        height: 50vh; 
-        margin-top: -120px;
-        background-attachment: scroll !important; /* ✅ غصب عنه يغير */
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-    }
-  `}
+          
+          /* بطاقات الرؤية والرسالة */
+          .vision-mission-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+          }
+          
+          .vision-mission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+          }
+          
+          .vision-mission-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+          }
+          
+          .vision-mission-card p {
+            color: #555;
+            line-height: 1.7;
+          }
+          
+          /* 📱 للموبايل فقط */
+          @media screen and (max-width: 767px) {
+            .about-hero {
+              height: 60vh; /* زدت الارتفاع للموبايل */
+              margin-top: -120px;
+              margin-bottom: -20px; /* ← شيلت المسافة تحت الصورة */
+            }
+            
+            .vision-mission-card {
+              margin-bottom: 2rem;
+              padding: 2rem;
+            }
+            
+            .vision-mission-card h3 {
+              font-size: 1.5rem;
+            }
+          }
+          
+          /* 🖥️ للشاشات الكبيرة جدًا */
+          @media screen and (min-width: 1200px) {
+            .about-hero {
+              height: 80vh; /* ارتفاع أكبر للشاشات الكبيرة جدًا */
+            }
+          }
+          
+          /* حركة خفيفة للنص */
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}
       </style>
     </div>
   );
