@@ -5,12 +5,20 @@ const StaticImage2 = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
   const [height, setHeight] = useState(getResponsiveHeight());
+  const [width, setWidth] = useState(getResponsiveWidth());
 
   function getResponsiveHeight() {
     if (typeof window !== 'undefined') {
       return window.innerWidth < 768 ? '35vh' : '60vh';
     }
     return '60vh';
+  }
+
+  function getResponsiveWidth() {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768 ? '100%' : '90%';
+    }
+    return '90%';
   }
 
   useEffect(() => {
@@ -26,6 +34,7 @@ const StaticImage2 = () => {
 
     const handleResize = () => {
       setHeight(getResponsiveHeight());
+      setWidth(getResponsiveWidth());
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -38,15 +47,26 @@ const StaticImage2 = () => {
   }, []);
 
   return (
-    <section ref={containerRef} style={{ ...styles.container, height }}>
+    <section
+      ref={containerRef}
+      style={{
+        ...styles.container,
+        height,
+        paddingTop: '0px',    // تقليل المسافات فوق
+        paddingBottom: '0px', // تقليل المسافات تحت
+      }}
+    >
       <div
         ref={bgRef}
         style={{
           ...styles.background,
+          width,
           transform: `translateX(-50%) translateY(${offset}px)`,
+          boxShadow: 'none',          // إزالة أي شادو
+          backgroundBlendMode: 'normal', // لضمان وضوح الصورة
         }}
       />
-      {/* المحتوى لو حبيت تضيفه */}
+      {/* محتوى اختياري */}
       {/* <div style={styles.content}>
         <h2 style={styles.title}>State-of-the-Art Printing Facility</h2>
         <p style={styles.subtitle}>Equipped with modern KBA offset technology</p>
@@ -63,39 +83,39 @@ const styles: { [key: string]: React.CSSProperties } = {
     position: 'relative',
     width: '100%',
     overflow: 'hidden',
-    minHeight: '200px',
     transition: 'height 0.3s ease',
   },
   background: {
     position: 'absolute',
     top: 0,
-    left: '50%',              // 🌟 وسط الصورة أفقياً
+    left: '50%',
     height: '100%',
-    width: '90%',             // 🌟 عرض أصغر شويه
     backgroundImage: 'url("/assets/images/KBA.jpg")',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     willChange: 'transform',
     transition: 'transform 0.1s linear',
+    boxShadow: 'none',
+    backgroundBlendMode: 'normal',
   },
   content: {
     position: 'relative',
     zIndex: 1,
     textAlign: 'center',
     color: '#fff',
-    padding: '100px 20px',
+    padding: '20px', // تقليل البادينج
   },
   title: {
-    fontSize: '2.5rem',
+    fontSize: '2rem',
     fontWeight: '700',
-    marginBottom: '15px',
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+    marginBottom: '10px',
+    textShadow: 'none', // إزالة أي شادو
   },
   subtitle: {
-    fontSize: '1.5rem',
+    fontSize: '1.2rem',
     fontWeight: '500',
     color: '#f39c12',
-    textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
+    textShadow: 'none', // إزالة أي شادو
   },
 };
