@@ -1,0 +1,35 @@
+.parallax-slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transform: translateX(30px) scale(1.05); /* تبدأ مزاحة ومكبرة شوية */
+  transition: opacity 1.2s ease-in-out, transform 5s ease-in-out;
+  z-index: 0;
+}
+
+.parallax-image.active {
+  opacity: 1;
+  transform: translateX(0) scale(1); /* تدخل وتستقر */
+  z-index: 1;
+}
+
+/* 📱 موبايل */
+@media (max-width: 768px) {
+  .parallax-slider {
+    height: 350px;
+  }
+  .parallax-image {
+    object-fit: contain;
+  }
+}

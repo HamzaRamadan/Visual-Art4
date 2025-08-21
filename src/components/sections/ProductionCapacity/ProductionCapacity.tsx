@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLanguageHook } from '../../hooks/useLanguage';
-import { productionCapacityData } from '../../utils/data';
-import SectionTitle from '../layout/SectionTitle';
+import './productionCapacity.css'
+import { useLanguageHook } from '../../../hooks/useLanguage';
+import { productionCapacityData } from '../../../utils/data';
+import SectionTitle from '../../layout/SectionTitle';
 
 // ✅ hook جديد: يراقب العنصر ويرجع isVisible
 const useInView = () => {
@@ -78,7 +79,7 @@ const ProductionCapacity: React.FC = () => {
 
   return (
     <section
-      className="production-capacity-section"
+      className={`production-capacity-section ${isRTL ? 'rtl' : 'ltr'}`}
       ref={capacityRef}
       dir={isRTL ? 'rtl' : 'ltr'}
     >
@@ -134,84 +135,6 @@ const ProductionCapacity: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <style>
-        {`
-          .production-capacity-section {
-            padding: 80px 0;
-            overflow: hidden;
-          }
-
-          .production-capacity-container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 15px;
-          }
-
-          .production-capacity-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-          }
-
-          .production-capacity-text p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-          }
-
-          .production-capacity-features ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-          }
-
-          .production-capacity-features li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            font-size: 1rem;
-          }
-
-          .production-capacity-features i {
-            color: #0a4d8c;
-            margin-${isRTL ? 'left' : 'right'}: 10px;
-          }
-
-          .production-capacity-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-          }
-
-          .production-capacity-stat-card {
-            flex: 1 1 30%;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-          }
-
-          .production-capacity-stat-card .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #0a4d8c;
-            margin-bottom: 10px;
-          }
-
-          .production-capacity-stat-card .stat-label {
-            font-size: 1rem;
-            color: #555;
-          }
-
-          @media (max-width: 768px) {
-            .production-capacity-stats {
-              flex-direction: column;
-            }
-          }
-        `}
-      </style>
     </section>
   );
 };

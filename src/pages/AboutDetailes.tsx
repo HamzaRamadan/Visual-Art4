@@ -1,7 +1,7 @@
 import SectionTitle from "../components/layout/SectionTitle";
 import { useLanguage } from "../context/LanguageContext";
 import { aboutTranslations } from "../utils/aboutTranslations";
-import "../components/sections/AboutUs.css";
+import "../components/sections/AboutUs/AboutUs.css";
 import { Parallax } from "react-parallax";
 
 const AboutDetailes = () => {

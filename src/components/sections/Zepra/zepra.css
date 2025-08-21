@@ -1,0 +1,28 @@
+/* الحاوية */
+.zepra-container {
+  width: 100%;
+  height: 80vh;              
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* الصورة */
+.zepra-image {
+  width: 95%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* 📱 Media Queries للموبايل */
+@media (max-width: 768px) {
+  .zepra-container {
+    height: 50vh;         
+  }
+  .zepra-image {
+    width: 100%;           
+    border-radius: 5px;     
+  }
+}

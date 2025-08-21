@@ -1,7 +1,7 @@
 import "./ServicesSection.css";
-import { sectionTitles, servicesData } from "../../utils/data";
-import { useLanguageHook } from "../../hooks/useLanguage";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { sectionTitles, servicesData } from "../../../utils/data";
+import { useLanguageHook } from "../../../hooks/useLanguage";
+import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 
 const ServicesSection = () => {
@@ -31,7 +31,10 @@ const ServicesSection = () => {
                   </div>
                   <div className="flip-card-back">
                     <p className="service-description">{service.description}</p>
-                    <Link to={`/services/${service.id}`} className="service-btn">
+                    <Link
+                      to={`/services/${service.id}`}
+                      className="service-btn"
+                    >
                       {language === "ar" ? "عرض التفاصيل" : "View Details"}
                     </Link>
                   </div>
