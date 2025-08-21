@@ -1,6 +1,6 @@
 import React from "react";
 import lemonImg from "/assets/images/lemon.png";
-import "./lemon.css";
+import "./Lemon.css";
 import SectionTitle from "../../layout/SectionTitle";
 import { useLanguageHook } from "../../../hooks/useLanguage";
 
