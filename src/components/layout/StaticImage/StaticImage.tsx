@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./StaticImage.css"; // استدعاء ملف الاستايل
+import "./StaticImage.css"; 
 
 const StaticImage: React.FC = () => {
   const images = [
-    "/assets/images/path.png",
-    // "/assets/images/KBA.jpg",
-    "/assets/images/p1.png",
+    "/assets/images/medical.png",
+    "/assets/images/medical.png",
+    "/assets/images/medical.png",
+    "/assets/images/medical.png",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -230,7 +230,7 @@ export const productsData = {
       features: ["حماية متقدمة", "مظهر فاخر", "متانة عالية"],
     },
     {
-      img: "/assets/images/51.png",
+      img: "/assets/images/52.png",
       imgList:['/assets/images/51.png', '/assets/images/52.png', '/assets/images/53.png'],
       category: "الملصقات",
       title: "الملصقات",

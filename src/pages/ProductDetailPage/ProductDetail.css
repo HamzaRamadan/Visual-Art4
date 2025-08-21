@@ -167,6 +167,9 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
+  margin-bottom: 20px;
+    border-radius: 20px;
+
 }
 
 .related-product-card .product-image {
@@ -186,6 +189,7 @@
 }
 
 .related-product-card .product-content {
+  background: rgb(114, 73, 188);
   flex: 1 !important;
   padding: 10px !important;
   z-index: 1000 !important;

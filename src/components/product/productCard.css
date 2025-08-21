@@ -1,5 +1,5 @@
 .product-card {
-  background: white;
+  background: rgb(114, 73, 188);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -74,13 +74,15 @@
 .product-content h3 {
   margin: 0 0 15px;
   font-size: 22px;
-  color: #333;
+  /* color: #333; */
+  color: #fff;
   font-weight: 600;
 }
 
 .product-content p {
   margin: 0 0 20px;
-  color: #666;
+  color: #333;
+  /* color: #666; */
   font-size: 15px;
   line-height: 1.5;
   flex-grow: 1;
@@ -88,6 +90,12 @@
 
 .product-features {
   margin-bottom: 20px;
+  
+}
+.ProductCategory{
+  background: rgb(114, 73, 188);
+  border-radius: 12px;
+
 }
 
 .feature-item {
