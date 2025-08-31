@@ -3,10 +3,10 @@ import "./StaticImage.css";
 
 const StaticImage: React.FC = () => {
   const images = [
-    "/assets/images/medical.png",
-    "/assets/images/medical.png",
-    "/assets/images/medical.png",
-    "/assets/images/medical.png",
+    "/assets/images/WhatsApp Image 2025-08-31 at 9.35.49 AM.jpeg",
+    "/assets/images/WhatsApp Image 2025-08-31 at 9.35.49 AM.jpeg",
+    "/assets/images/WhatsApp Image 2025-08-31 at 9.35.49 AM.jpeg",
+    "/assets/images/WhatsApp Image 2025-08-31 at 9.35.49 AM.jpeg",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

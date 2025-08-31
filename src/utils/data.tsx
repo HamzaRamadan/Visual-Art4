@@ -11,7 +11,7 @@ export const companyData = {
     contact: {
       address: "Outer Karrada, Baghdad",
       phone: "+964 782 450 0000",
-      email: "info@visualart.com",
+      email: "info@visualart-iraq.com",
       website: "visualart-iraq.com",
     },
   },

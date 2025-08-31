@@ -18,7 +18,7 @@ const AboutDetailes = () => {
   return (
     <div className="page about-page">
       <Parallax
-        bgImage="/assets/images/aboutUs.jpeg"
+        bgImage="/assets/images/WhatsApp Image 2025-08-31 at 9.35.49 AM (1).jpeg"
         strength={600} 
         bgImageStyle={{
           width: "100%",

@@ -127,7 +127,7 @@ const Contact: React.FC = () => {
               />
               {isRTL ? "البريد الإلكتروني" : "Email"}
             </div>
-            <div style={styles.text}>info@fabyab.co</div>
+            <div style={styles.text}>info@visualart-iraq.com</div>
           </div>
         </div>
 
