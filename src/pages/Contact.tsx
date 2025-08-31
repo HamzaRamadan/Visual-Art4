@@ -113,9 +113,21 @@ const Contact: React.FC = () => {
               />
               {isRTL ? "الهاتف" : "Phone"}
             </div>
-            <div style={styles.text}>
-              {isRTL ? "0000 054 287 469+" : "+964 782 450 0000"}
-            </div>
+          
+            {/* <div style={{ ...styles.text, direction: "ltr", unicodeBidi: "bidi-override" }}>
+  +964 782 450 0000
+</div> */}
+<div
+  style={{
+    ...styles.text,
+    direction: "ltr", // نخلي الرقم من الشمال لليمين دايمًا
+    unicodeBidi: "bidi-override",
+    textAlign: isRTL ? "right" : "left", // يخلي مكان الرقم ثابت حسب اتجاه النص
+  }}
+>
+  +964 782 450 0000
+</div>
+
           </div>
 
           <div style={styles.item}>

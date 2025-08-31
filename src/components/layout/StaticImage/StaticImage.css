@@ -1,8 +1,11 @@
 .parallax-slider {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .parallax-image {
@@ -10,17 +13,17 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;   /* ✅ يخلي الصورة كاملة */
   object-position: center;
   opacity: 0;
-  transform: translateX(30px) scale(1.05); /* تبدأ مزاحة ومكبرة شوية */
+  transform: translateX(30px) scale(1.05);
   transition: opacity 1.2s ease-in-out, transform 5s ease-in-out;
   z-index: 0;
 }
 
 .parallax-image.active {
   opacity: 1;
-  transform: translateX(0) scale(1); /* تدخل وتستقر */
+  transform: translateX(0) scale(1);
   z-index: 1;
 }
 
@@ -30,6 +33,6 @@
     height: 350px;
   }
   .parallax-image {
-    object-fit: contain;
+    object-fit: contain; /* تفضل contain عشان متتقصش */
   }
 }

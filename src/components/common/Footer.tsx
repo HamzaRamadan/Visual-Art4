@@ -214,7 +214,7 @@ const Footer: React.FC = () => {
               &copy; {new Date().getFullYear()} {companyData[language].name}.{" "}
               {isRTL ? "جميع الحقوق محفوظة" : "All Rights Reserved"}.
             </p>
-            <div
+            {/* <div
               style={{
                 display: "flex",
                 gap:
@@ -233,7 +233,7 @@ const Footer: React.FC = () => {
               <Link to="/terms" className="bottom-link">
                 {isRTL ? "الشروط والأحكام" : "Terms & Conditions"}
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
