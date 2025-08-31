@@ -84,31 +84,28 @@ const AboutDetailes = () => {
           padding: 0 0 4rem 0; 
           margin-top: -40px;
         }
+.vision-mission-card {
+  flex: 1;
+  background-color: var(--background-dark);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
 
-        .vision-mission-card {
-          background: #f8f9fa;
-          padding: 2.5rem;
-          border-radius: 12px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          height: 100%;
-        }
+.vision-mission-card:hover {
+  transform: translateY(-5px);
+}
 
-        .vision-mission-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
+.vision-mission-card h3 {
+  color: #DC3545;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
 
-        .vision-mission-card h3 {
-          color: #2c3e50;
-          margin-bottom: 1.2rem;
-          font-size: 1.8rem;
-        }
-
-        .vision-mission-card p {
-          color: #555;
-          line-height: 1.7;
-        }
+.vision-mission-card p {
+  line-height: 1.6;
+}
 
         @media screen and (max-width: 767px) {
           .parallax-wrapper {
