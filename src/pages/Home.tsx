@@ -27,6 +27,7 @@ const Home: React.FC = () => {
       <News />
       <Lemon />
       <Contact />
+      
     </>
   );
 };

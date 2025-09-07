@@ -8,11 +8,15 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-      "postinstall": "patch-package"
-
+    "postinstall": "patch-package"
   },
   "dependencies": {
+    "@mantine/core": "^8.2.8",
+    "@mantine/hooks": "^8.2.8",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.542.0",
     "patch-package": "^8.0.0",
     "postinstall-postinstall": "^2.1.0",
     "react": "^19.1.1",
@@ -23,11 +27,13 @@
     "react-router-dom": "^7.8.0",
     "react-scroll-parallax": "^3.4.5",
     "react-slick": "^0.31.0",
+    "react-toastify": "^11.0.5",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
@@ -37,7 +43,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.12",
+    "tailwindcss": "^3.4.17",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2"

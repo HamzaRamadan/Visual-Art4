@@ -37,6 +37,7 @@ const Header: React.FC = () => {
     { path: "/contact", label: isRTL ? "اتصل بنا" : "Contact" },
     { path: "/news", label: isRTL ? "الاخبار" : "News" },
     { path: "/CompanyProfile", label: isRTL ? "ملف تعريف الشركة" : "Company Profile" },
+    // { path: "/admin", label: isRTL ? "  لوحه التحكم" : " DashBoard" },
   ];
 
   return (

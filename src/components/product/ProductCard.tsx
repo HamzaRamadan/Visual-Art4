@@ -5,23 +5,23 @@ import './productCard.css';
 import { useLanguageHook } from '../../hooks/useLanguage';
 
 interface ProductCardProps {
-  product: Product;
+  product: Product & { mainId: string }; // mainId ده _id الأساسي
   index: number;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
   const { language } = useLanguageHook();
-  
+
   return (
     <div className="product-card">
       <div className="product-image-container">
-        <img 
-          src={product.img || `/assets/images/product-${index + 1}.jpg`} 
-          alt={product.title} 
+        <img
+          src={product.img || `/assets/images/product-${index + 1}.jpg`}
+          alt={product.title}
           className="product-image"
         />
         <div className="product-overlay">
-          <Link to={`/products/${product.category}`} className="view-details-btn">
+          <Link to={`/products/${product.mainId}`} className="view-details-btn">
             {language === 'ar' ? 'عرض التفاصيل' : 'View Details'}
           </Link>
         </div>
@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
             </div>
           ))}
         </div>
-        <Link to={`/products/${product.category}`} className="product-btn">
+        <Link to={`/products/${product.mainId}`} className="product-btn">
           {language === 'ar' ? 'تعلم المزيد' : 'Learn More'}
         </Link>
       </div>

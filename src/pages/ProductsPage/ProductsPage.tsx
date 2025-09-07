@@ -1,31 +1,83 @@
-import React, { useState, useEffect } from "react";
-import { useLanguageHook } from "../../hooks/useLanguage";
-import { productsData } from "../../utils/data";
-import ProductCard from "../../components/product/ProductCard";
-import SectionTitle from "../../components/layout/SectionTitle";
+import { useEffect, useState, useMemo } from "react";
 import "./ProductsPage.css";
+import { useLanguageHook } from "../../hooks/useLanguage";
+import SectionTitle from "../../components/layout/SectionTitle";
+import ProductCard from "../../components/product/ProductCard";
 
-const ProductsPage: React.FC = () => {
+interface ProductLang {
+  img: string;
+  category: string;
+  title: string;
+  description: string;
+  features: string[];
+  _id: string;
+}
+
+interface Product {
+  _id: string | { $oid: string };
+  ar: ProductLang[];
+  en: ProductLang[];
+}
+
+interface ProductDisplay {
+  mainId: string; // _id الأساسي
+  img: string;
+  title: string;
+  description: string;
+  features: string[];
+  category: string;
+}
+
+export default function ProductsPage() {
+  const [productsData, setProductsData] = useState<Product[]>([]);
   const { language } = useLanguageHook();
   const isRTL = language === "ar";
+
   const [activeCategory, setActiveCategory] = useState("all");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<ProductDisplay[]>([]);
 
-  const products = productsData[language];
+  // ✅ تحميل البيانات من الـ API
+  useEffect(() => {
+    fetch("http://localhost:5000/api/products")
+      .then((res) => res.json())
+      .then((data) => setProductsData(data))
+      .catch((err) => console.error("❌ Error fetching products:", err));
+  }, []);
 
-  const uniqueCategories = Array.from(
-    new Set(products.map((product) => product.category))
-  );
+  // ✅ تحويل البيانات مع mainId صحيح
+  const products = useMemo(() => {
+    return (productsData || [])
+      .map((p) => {
+        const langData = p[language]?.[0];
+        if (!langData) return null;
 
-  const categories = [
-    { id: "all", name: language === "ar" ? "الكل" : "All" },
-    ...uniqueCategories.map((category) => ({
-      id: category,
-      name: category.charAt(0).toUpperCase() + category.slice(1),
-    })),
-  ];
+        // تعديل هنا: استخراج _id كـ string
+        let id: string = "";
+        if (typeof p._id === "string") {
+          id = p._id;
+        } else if (p._id && "$oid" in p._id) {
+          id = p._id.$oid;
+        }
 
+        return {
+          mainId: id,
+          img: langData.img,
+          title: langData.title,
+          description: langData.description,
+          features: langData.features,
+          category: langData.category || "",
+        };
+      })
+      .filter(Boolean) as ProductDisplay[];
+  }, [productsData, language]);
+
+  // ✅ استخراج الكاتيجوريز
+  const categories = useMemo(() => {
+    const langs = products.map((p) => p.category).filter(Boolean);
+    return ["all", ...new Set(langs)];
+  }, [products]);
+
+  // ✅ فلترة المنتجات حسب الكاتيجوري
   useEffect(() => {
     if (activeCategory === "all") {
       setFilteredProducts(products);
@@ -41,32 +93,43 @@ const ProductsPage: React.FC = () => {
       <div className="container">
         <SectionTitle title={language === "ar" ? "منتجاتنا" : "Our Products"} />
 
+        {/* أزرار الكاتيجوري */}
         <div className="products-filter">
           <div className="filter-buttons">
             {categories.map((category) => (
               <button
-                key={category.id}
+                key={category}
                 className={`filter-btn ${
-                  activeCategory === category.id ? "active" : ""
+                  activeCategory === category ? "active" : ""
                 }`}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => setActiveCategory(category)}
               >
-                {category.name}
+                {category}
               </button>
             ))}
           </div>
         </div>
 
+        {/* شبكة المنتجات */}
         <div className="products-grid">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.category}
-              product={product}
-              index={products.indexOf(product)}
-            />
+          {filteredProducts.map((product, index) => (
+           <ProductCard
+  key={product.mainId}
+  index={index}
+  product={{
+    _id: product.mainId,
+    ar: [],
+    en: [],
+    ...product,
+  }}
+/>
+
           ))}
         </div>
 
+        
+
+        {/* لا توجد منتجات */}
         {filteredProducts.length === 0 && (
           <div className="no-products">
             <h3>
@@ -85,6 +148,4 @@ const ProductsPage: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default ProductsPage;
+}

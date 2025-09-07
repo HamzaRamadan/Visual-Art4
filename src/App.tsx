@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import Contact from "./pages/Contact";
-import ProductDetailPage from "./pages/ProductDetailPage/ProductDetail";
 import AboutUs from "./components/sections/AboutUs/AboutUs";
 import AboutDetailes from "./pages/AboutDetailes";
 import ServicesSection from "./components/sections/ServicesSection/ServicesSection";
@@ -16,6 +15,10 @@ import ServiceDetails from "./components/sections/ServiceDetails/ServiceDetails"
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import News from "./pages/News/News";
 import CompanyProfile from "./pages/CompanyProfile";
+import ProductDetail from "./pages/ProductDetails/ProductDetail";
+
+import Login from "./components/admin/pages/Login";
+import AdminDashboard from "./components/admin/AdminDashboard";
 
 const App: React.FC = () => {
   return (
@@ -31,14 +34,15 @@ const App: React.FC = () => {
               <Route path="/services" element={<ServicesSection />} />
               <Route path="/services/:id" element={<ServiceDetails />} />
               <Route path="/services/:id" element={<ServiceDetailPage />} />
-              <Route
-                path="/products/:category"
-                element={<ProductDetailPage />}
-              />
+              <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/news" element={<News />} />
               <Route path="/CompanyProfile" element={<CompanyProfile />} />
               <Route path="/AboutDetailes" element={<AboutDetailes />} />
+
+              <Route path="/adminToDashBoard/*"element={<AdminDashboard />} />
+              <Route path="/admin/" element={<Login />} />
+
             </Routes>
           </main>
           <Footer />

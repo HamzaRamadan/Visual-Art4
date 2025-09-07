@@ -174,149 +174,149 @@ treatments, ensuring high quality, fast turnaround, and reduced costs to get you
   ],
 };
 
-export const productsData = {
-  ar: [
-    {
-      img: "/assets/images/14.png",
-      imgList:['/assets/images/14.png', '/assets/images/15.png', '/assets/images/16.png'],
-      category: "تغليف الأدوية والمنتجات الصيدلانية",
-      title: "تغليف الأدوية والمنتجات الصيدلانية",
-      description:
-        "نحرص في مصنع الفارابي للطباعة على الالتزام بتشريعات وزارة الصحة العراقية، ونعمل وفق أعلى المعايير لضمان سلامة تغليف الأدوية. كما نركز على تطبيق مفهوم 'التصميم من أجل الاقتصاد الدائري' في تغليف منتجات الرعاية الصحية.",
-      features: ["علب", "نشرة", "رقائق", "ملصقات"],
-    },
-    {
-      img: "/assets/images/25.png",
-      imgList:['/assets/images/25.png', '/assets/images/26.png', '/assets/images/27.jpg'],
-      category: "تغليف المنتجات الغذائية",
-      title: "تغليف المنتجات الغذائية",
-      description:
-        "يواجه مصنعو المواد الغذائية تحديات كبيرة، من الحاجة لزيادة الكفاءة، وتقليل التكاليف، إلى تحسين الأداء وجذب انتباه المستهلك وتحقيق الاستدامة. مصنع الفارابي للطباعة هي شريكك في التغليف، نفهم تماماً هذه التحديات، ونقدّم لك الحلول التي تساعدك على التميز والنجاح في السوق.",
-      features: [
-        "حماية ضد الرطوبة والبخار",
-        "حماية ضد الزيوت والدهون",
-        "حماية ضد الروائح والغازات",
-      ],
-    },
-    {
-      img: "/assets/images/36.jpg",
-      imgList:['/assets/images/36.jpg', '/assets/images/37.jpg', '/assets/images/38.png'],
-      category: "صناديق خاصة",
-      title: "صناديق خاصة",
-      description:
-        "في مصنع الفارابي للطباعة، نوفّر عبوات كرتونية و الورقيــة و عبوات الأدويــة متخصصـــة يتم إنتاجهـــا باستخدام تقنيات طباعة ومعالجة دقيقة تضمن الجودة والالتزام بالمعايير المطلوبة.",
-      features: [
-        "حفظ هوية العلامة التجارية",
-        "توصيل المعلومات بوضوح",
-        "تخصيص كامل للشكل والمواد",
-      ],
-    },
-    {
-      img: "/assets/images/39.jpg",
-      imgList:['/assets/images/39.jpg', '/assets/images/40.jpg', '/assets/images/41.jpg'],
-      category: "نوافذ شفافة",
-      title: "نوافذ شفافة",
-      description:
-        "نوفر حلول تغليف بنوافذ شفافة تسمح برؤية المنتج مباشرة، مع الحفاظ على جودة العبوة وحمايتها.",
-      features: ["عرض المنتج", "حماية العبوة", "جودة طباعة عالية"],
-    },
-    {
-      img: "/assets/images/45.png",
-      imgList:['/assets/images/45.png', '/assets/images/46.png', '/assets/images/47.png'],
-      category: "صناديق laminated",
-      title: "صناديق laminated",
-      description:
-        "ننتج صناديق laminated عالية الجودة بتنسيقات كبيرة، مناسبة للمنتجات التي تتطلب تغليفاً متيناً وفاخراً.",
-      features: ["حماية متقدمة", "مظهر فاخر", "متانة عالية"],
-    },
-    {
-      img: "/assets/images/52.png",
-      imgList:['/assets/images/51.png', '/assets/images/52.png', '/assets/images/53.png'],
-      category: "الملصقات",
-      title: "الملصقات",
-      description:
-        "نحن متخصصون في إنتاج الملصقات الذاتية اللصق لقطاعات الأدوية، الرعاية الصحية، والتجميل، حيث نوفّر مجموعة متنوعة من الملصقات المصممة لتناسب خطوط التعبئة السريعة والآلية.",
-      features: ["جودة دوائية عالية", "حلول ملصقات فاخرة", "معلومات واضحة"],
-    },
-  ],
-  en: [
-    {
-      img: "/assets/images/14.png",
-      imgList:['/assets/images/14.png', '/assets/images/15.png', '/assets/images/16.png'],
-      category: "Medical & pharmaceutical packaging",
-      title: "Medical & pharmaceutical packaging",
-      description:
-        "At Al-Farabi Printing Factory, we adhere to the regulations of the Iraqi Ministry of Health and work to the highest standards to ensure the safety of pharmaceutical packaging. We also focus on applying the concept of 'Design for Circular Economy' in the packaging of healthcare products.",
-      features: ["boxes", "Leaflet", "foil", "Label"],
-    },
-    {
-      img: "/assets/images/25.png",
-      imgList:['/assets/images/25.png', '/assets/images/26.png', '/assets/images/27.jpg'],
+// export const productsData = {
+//   ar: [
+//     {
+//       img: "/assets/images/14.png",
+//       imgList:['/assets/images/14.png', '/assets/images/15.png', '/assets/images/16.png'],
+//       category: "تغليف الأدوية والمنتجات الصيدلانية",
+//       title: "تغليف الأدوية والمنتجات الصيدلانية",
+//       description:
+//         "نحرص في مصنع الفارابي للطباعة على الالتزام بتشريعات وزارة الصحة العراقية، ونعمل وفق أعلى المعايير لضمان سلامة تغليف الأدوية. كما نركز على تطبيق مفهوم 'التصميم من أجل الاقتصاد الدائري' في تغليف منتجات الرعاية الصحية.",
+//       features: ["علب", "نشرة", "رقائق", "ملصقات"],
+//     },
+//     {
+//       img: "/assets/images/25.png",
+//       imgList:['/assets/images/25.png', '/assets/images/26.png', '/assets/images/27.jpg'],
+//       category: "تغليف المنتجات الغذائية",
+//       title: "تغليف المنتجات الغذائية",
+//       description:
+//         "يواجه مصنعو المواد الغذائية تحديات كبيرة، من الحاجة لزيادة الكفاءة، وتقليل التكاليف، إلى تحسين الأداء وجذب انتباه المستهلك وتحقيق الاستدامة. مصنع الفارابي للطباعة هي شريكك في التغليف، نفهم تماماً هذه التحديات، ونقدّم لك الحلول التي تساعدك على التميز والنجاح في السوق.",
+//       features: [
+//         "حماية ضد الرطوبة والبخار",
+//         "حماية ضد الزيوت والدهون",
+//         "حماية ضد الروائح والغازات",
+//       ],
+//     },
+//     {
+//       img: "/assets/images/36.jpg",
+//       imgList:['/assets/images/36.jpg', '/assets/images/37.jpg', '/assets/images/38.png'],
+//       category: "صناديق خاصة",
+//       title: "صناديق خاصة",
+//       description:
+//         "في مصنع الفارابي للطباعة، نوفّر عبوات كرتونية و الورقيــة و عبوات الأدويــة متخصصـــة يتم إنتاجهـــا باستخدام تقنيات طباعة ومعالجة دقيقة تضمن الجودة والالتزام بالمعايير المطلوبة.",
+//       features: [
+//         "حفظ هوية العلامة التجارية",
+//         "توصيل المعلومات بوضوح",
+//         "تخصيص كامل للشكل والمواد",
+//       ],
+//     },
+//     {
+//       img: "/assets/images/39.jpg",
+//       imgList:['/assets/images/39.jpg', '/assets/images/40.jpg', '/assets/images/41.jpg'],
+//       category: "نوافذ شفافة",
+//       title: "نوافذ شفافة",
+//       description:
+//         "نوفر حلول تغليف بنوافذ شفافة تسمح برؤية المنتج مباشرة، مع الحفاظ على جودة العبوة وحمايتها.",
+//       features: ["عرض المنتج", "حماية العبوة", "جودة طباعة عالية"],
+//     },
+//     {
+//       img: "/assets/images/45.png",
+//       imgList:['/assets/images/45.png', '/assets/images/46.png', '/assets/images/47.png'],
+//       category: "صناديق laminated",
+//       title: "صناديق laminated",
+//       description:
+//         "ننتج صناديق laminated عالية الجودة بتنسيقات كبيرة، مناسبة للمنتجات التي تتطلب تغليفاً متيناً وفاخراً.",
+//       features: ["حماية متقدمة", "مظهر فاخر", "متانة عالية"],
+//     },
+//     {
+//       img: "/assets/images/52.png",
+//       imgList:['/assets/images/51.png', '/assets/images/52.png', '/assets/images/53.png'],
+//       category: "الملصقات",
+//       title: "الملصقات",
+//       description:
+//         "نحن متخصصون في إنتاج الملصقات الذاتية اللصق لقطاعات الأدوية، الرعاية الصحية، والتجميل، حيث نوفّر مجموعة متنوعة من الملصقات المصممة لتناسب خطوط التعبئة السريعة والآلية.",
+//       features: ["جودة دوائية عالية", "حلول ملصقات فاخرة", "معلومات واضحة"],
+//     },
+//   ],
+//   en: [
+//     {
+//       img: "/assets/images/14.png",
+//       imgList:['/assets/images/14.png', '/assets/images/15.png', '/assets/images/16.png'],
+//       category: "Medical & pharmaceutical packaging",
+//       title: "Medical & pharmaceutical packaging",
+//       description:
+//         "At Al-Farabi Printing Factory, we adhere to the regulations of the Iraqi Ministry of Health and work to the highest standards to ensure the safety of pharmaceutical packaging. We also focus on applying the concept of 'Design for Circular Economy' in the packaging of healthcare products.",
+//       features: ["boxes", "Leaflet", "foil", "Label"],
+//     },
+//     {
+//       img: "/assets/images/25.png",
+//       imgList:['/assets/images/25.png', '/assets/images/26.png', '/assets/images/27.jpg'],
 
-      category: "Food Packaging",
-      title: "Food Packaging",
-      description:
-        "Food manufacturers face significant challenges, from the need to increase efficiency and reduce costs, to improving performance, consumer appeal and sustainability. Al-Farabi Printing Factory, is your packaging partner, we understand these challenges and provide solutions that help you stand out and succeed in the marketplace.",
-      features: [
-        "protection against moisture and steam",
-        "protection against oils and fats",
-        "protection against odors and gases",
-      ],
-    },
-    {
-      img: "/assets/images/36.jpg",
-      imgList:['/assets/images/36.jpg', '/assets/images/37.jpg', '/assets/images/38.png'],
+//       category: "Food Packaging",
+//       title: "Food Packaging",
+//       description:
+//         "Food manufacturers face significant challenges, from the need to increase efficiency and reduce costs, to improving performance, consumer appeal and sustainability. Al-Farabi Printing Factory, is your packaging partner, we understand these challenges and provide solutions that help you stand out and succeed in the marketplace.",
+//       features: [
+//         "protection against moisture and steam",
+//         "protection against oils and fats",
+//         "protection against odors and gases",
+//       ],
+//     },
+//     {
+//       img: "/assets/images/36.jpg",
+//       imgList:['/assets/images/36.jpg', '/assets/images/37.jpg', '/assets/images/38.png'],
 
-      category: "Special Boxes",
-      title: "Special Boxes",
-      description:
-        "At Al-Farabi Printing Factory, we provide specialized cartons that are produced using precise printing and processing techniques that ensure quality and adherence to the required standards. These cartons are characterized by their ability to maintain brand identity when displaying the product, and help communicate important information to the consumer in a clear and attractive manner.",
-      features: [
-        "maintain brand identity",
-        "clear information delivery",
-        "full customization",
-      ],
-    },
-    {
-      img: "/assets/images/39.jpg",
-      imgList:['/assets/images/39.jpg', '/assets/images/40.jpg', '/assets/images/41.jpg'],
+//       category: "Special Boxes",
+//       title: "Special Boxes",
+//       description:
+//         "At Al-Farabi Printing Factory, we provide specialized cartons that are produced using precise printing and processing techniques that ensure quality and adherence to the required standards. These cartons are characterized by their ability to maintain brand identity when displaying the product, and help communicate important information to the consumer in a clear and attractive manner.",
+//       features: [
+//         "maintain brand identity",
+//         "clear information delivery",
+//         "full customization",
+//       ],
+//     },
+//     {
+//       img: "/assets/images/39.jpg",
+//       imgList:['/assets/images/39.jpg', '/assets/images/40.jpg', '/assets/images/41.jpg'],
 
-      category: "Window Patching",
-      title: "Window Patching",
-      description:
-        "We provide packaging solutions with transparent windows that allow direct viewing of the product, while maintaining the quality and protection of the package.",
-      features: ["product display", "package protection", "high print quality"],
-    },
-    {
-      img: "/assets/images/45.png",
-      imgList:['/assets/images/45.png', '/assets/images/46.png', '/assets/images/47.png'],
+//       category: "Window Patching",
+//       title: "Window Patching",
+//       description:
+//         "We provide packaging solutions with transparent windows that allow direct viewing of the product, while maintaining the quality and protection of the package.",
+//       features: ["product display", "package protection", "high print quality"],
+//     },
+//     {
+//       img: "/assets/images/45.png",
+//       imgList:['/assets/images/45.png', '/assets/images/46.png', '/assets/images/47.png'],
 
-      category: "Laminated Carton",
-      title: "Laminated Carton",
-      description:
-        "We produce high-quality laminated boxes in large formats, suitable for products that require sturdy and luxurious packaging.",
-      features: [
-        "advanced protection",
-        "luxurious appearance",
-        "high durability",
-      ],
-    },
-    {
-      img: "/assets/images/51.png",
-      imgList:['/assets/images/51.png', '/assets/images/52.png', '/assets/images/53.png'],
+//       category: "Laminated Carton",
+//       title: "Laminated Carton",
+//       description:
+//         "We produce high-quality laminated boxes in large formats, suitable for products that require sturdy and luxurious packaging.",
+//       features: [
+//         "advanced protection",
+//         "luxurious appearance",
+//         "high durability",
+//       ],
+//     },
+//     {
+//       img: "/assets/images/51.png",
+//       imgList:['/assets/images/51.png', '/assets/images/52.png', '/assets/images/53.png'],
 
-      category: "Labels",
-      title: "Labels",
-      description:
-        "We specialize in the production of self-adhesive labels for the pharmaceutical, healthcare, and beauty sectors, offering a variety of labels designed to suit fast and automated packaging lines.",
-      features: [
-        "high pharmaceutical standards",
-        "premium labeling solutions",
-        "clear information",
-      ],
-    },
-  ],
-};
+//       category: "Labels",
+//       title: "Labels",
+//       description:
+//         "We specialize in the production of self-adhesive labels for the pharmaceutical, healthcare, and beauty sectors, offering a variety of labels designed to suit fast and automated packaging lines.",
+//       features: [
+//         "high pharmaceutical standards",
+//         "premium labeling solutions",
+//         "clear information",
+//       ],
+//     },
+//   ],
+// };
 
 
 
@@ -367,3 +367,25 @@ export const logisticsData = {
     ],
   },
 };
+
+export let productsData = {
+  ar: [],
+  en: [],
+};
+
+// فنكشن تجيب المنتجات من الباك إند
+export async function fetchProductsData() {
+  try {
+    const res = await fetch("http://localhost:5000/api/products");
+    const data = await res.json();
+
+    // نخزنها في الـ productsData
+    productsData = data;
+
+    console.log("✅ Products fetched:", productsData);
+    return productsData;
+  } catch (error) {
+    console.error("❌ Error fetching products:", error);
+    return productsData; // fallback فاضية
+  }
+}

@@ -1,76 +1,126 @@
-import './News.css';
-import { useLanguageHook } from '../../hooks/useLanguage';
-import SectionTitle from '../../components/layout/SectionTitle';
+import "./News.css";
+import { useLanguageHook } from "../../hooks/useLanguage";
+import SectionTitle from "../../components/layout/SectionTitle";
+import { useEffect, useState } from "react";
+import { API_BASE } from "../../components/admin/api";
 
-const newsCards = [
-  {
-    id: 1,
-    titleAr: "افتتاح معرض فنون جديد",
-    titleEn: "New Art Exhibition Opening",
-    descriptionAr: "تم افتتاح معرض فنون جديد في وسط المدينة يضم أعمالاً رائعة لفنانين محليين.",
-    descriptionEn: "A new art exhibition opened in the city center showcasing amazing works by local artists.",
-    date: "2025-08-16",
-    image: "/assets/images/Co Profile 70 Pages 03-images-54.jpg"
-  },
-  {
-    id: 2,
-    titleAr: "ورشة عمل للرسم الرقمي",
-    titleEn: "Digital Painting Workshop",
-    descriptionAr: "انضم إلى ورشة العمل عبر الإنترنت لتعلم الرسم الرقمي من خبراء المجال.",
-    descriptionEn: "Join the online workshop to learn digital painting from industry experts.",
-    date: "2025-08-10",
-    image: "/assets/images/Co Profile 70 Pages 03-images-63.jpg"
-  },
-  {
-    id: 3,
-    titleAr: "تجديد صالة العرض الرئيسية",
-    titleEn: "Main Gallery Renovation",
-    descriptionAr: "تم تجديد صالة العرض الرئيسية بإضاءة ومساحات جديدة لعرض الأعمال الفنية.",
-    descriptionEn: "The main gallery has been renovated with new lighting and spaces to display artworks.",
-    date: "2025-08-01",
-    image: "/assets/images/Co Profile 70 Pages 03-images-65.jpg"
-  },
-];
+interface NewsType {
+  _id?: string;
+  id?: string;
+  titleAr: string;
+  titleEn: string;
+  descriptionAr: string;
+  descriptionEn: string;
+  date: string;
+  image: string;
+}
+
+interface MainNewsType {
+  _id?: string;
+  titleAr: string;
+  titleEn: string;
+  descriptionAr: string;
+  descriptionEn: string;
+}
 
 const News = () => {
   const { language } = useLanguageHook();
-  const isRTL = language === 'ar';
+  const isRTL = language === "ar";
 
-  const text = {
-    date: isRTL ? 'منذ سنة' : '1 year ago',
-    title: isRTL ? 'معرض مصنع الفارابي للطباعة 2025' : 'Al-Farabi Printing Factory Expo 2025',
-    button: isRTL ? 'اقرأ المزيد' : 'Read More',
+  const defaultText = {
+    title: "معرض مصنع الفارابي للطباعة 2025",
+    description: "معرض مصنع الفارابي للطباعة 2025",
   };
 
+  const [mainNews, setMainNews] = useState<MainNewsType | null>(null);
+  const [newsCards, setNewsCards] = useState<NewsType[]>([]);
+  const [video, setVideo] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAll = async () => {
+      try {
+        // ===== Fetch Main News =====
+        const resMain = await fetch(`${API_BASE}/main-news`);
+        const dataMain = await resMain.json();
+        if (dataMain && dataMain.length > 0) setMainNews(dataMain[0]);
+
+        // ===== Fetch News Cards =====
+        const resNews = await fetch(`${API_BASE}/news`);
+        const dataNews = await resNews.json();
+        setNewsCards(dataNews);
+
+        // ===== Fetch Video =====
+        const resVideo = await fetch(`${API_BASE}/videos`);
+        const dataVideo = await resVideo.json();
+        setVideo(dataVideo?.video || null);
+
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAll();
+  }, []);
+
+  if (loading) {
+    return (
+      <p className="loading-text">{isRTL ? "جارٍ التحميل..." : "Loading..."}</p>
+    );
+  }
+
   return (
-    <div className={`news-page ${isRTL ? 'rtl' : 'ltr'}`}>
-      {/*  الفيديو  */}
-      <SectionTitle title={language === 'ar' ? 'الاخبار' : 'News '} />
+    <div className={`news-page ${isRTL ? "rtl" : "ltr"}`}>
+      <SectionTitle title={isRTL ? "الأخبار" : "News"} />
 
       <div className="news-container">
         <div className="news-text">
-          <p>{text.date}</p>
-          <h2>{text.title}</h2>
-          <button className="read-more-btn">{text.button}</button>
+          <h2>
+            {mainNews
+              ? isRTL
+                ? mainNews.titleAr
+                : mainNews.titleEn
+              : defaultText.title}
+          </h2>
+          <p>
+            {mainNews
+              ? isRTL
+                ? mainNews.descriptionAr
+                : mainNews.descriptionEn
+              : defaultText.description}
+          </p>
         </div>
         <div className="news-video">
-          <video controls>
-            <source src="/assets/videos/hero.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          {video ? (
+            <video controls>
+              <source
+                src={`${API_BASE.replace("/api", "")}${video}`}
+                type="video/mp4"
+              />
+              {isRTL
+                ? "متصفحك لا يدعم الفيديو"
+                : "Your browser does not support the video tag."}
+            </video>
+          ) : (
+            <p className="font-bold text-[25px] ml-28">
+              {isRTL ? "لا يوجد فيديو مرفوع حالياً" : "No video uploaded yet"}
+            </p>
+          )}
         </div>
       </div>
 
-
       <div className="news-cards">
         {newsCards.map((news) => (
-          <div className="news-card" key={news.id}>
+          <div className="news-card" key={news._id || news.id}>
             <img src={news.image} alt={isRTL ? news.titleAr : news.titleEn} />
             <div className="news-card-content">
               <h3>{isRTL ? news.titleAr : news.titleEn}</h3>
               <p>{isRTL ? news.descriptionAr : news.descriptionEn}</p>
-              <span className="news-card-date">{news.date}</span>
-              {/* <button className="read-more-btn">{text.button}</button> */}
+              <span className="news-card-date">
+                {new Date(news.date).toLocaleDateString()}
+              </span>
             </div>
           </div>
         ))}
