@@ -129,6 +129,7 @@ import SectionTitle from '../layout/SectionTitle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import '../../../public/assets/styles/swiper.css';
+import { API_BASE } from '../admin/api';
 
 interface ProductLang {
   img: string;
@@ -161,9 +162,8 @@ const Products: React.FC = () => {
   const [slidesPerView, setSlidesPerView] = useState(3);
   const [swiperKey, setSwiperKey] = useState(0);
 
-  // ✅ جلب المنتجات من API
   useEffect(() => {
-    fetch('http://localhost:5000/api/products')
+    fetch(`${API_BASE}/products`)
       .then(res => res.json())
       .then((data: Product[]) => {
         const mapped = data

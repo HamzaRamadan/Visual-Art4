@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { API_BASE } from "../api";
 import Layout from "../Layout";
 import { useLanguage } from "../../../context/LanguageContext";
@@ -56,9 +56,7 @@ export default function AdsManager() {
   const handleUpload = async () => {
     if (!selectedFiles) return;
     const formData = new FormData();
-    Array.from(selectedFiles).forEach((file) =>
-      formData.append("images", file)
-    );
+    Array.from(selectedFiles).forEach((file) => formData.append("images", file));
 
     try {
       setLoading(true);
@@ -81,9 +79,7 @@ export default function AdsManager() {
   // ✅ Delete Ad
   const handleDeleteAd = async (id: string) => {
     try {
-      const res = await fetch(`${API_BASE}/ads/${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(`${API_BASE}/ads/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Delete failed");
       setAds((prev) => prev.filter((ad) => ad._id !== id));
       showNotify(isRTL ? "🗑️ تم حذف الإعلان" : "🗑️ Ad deleted successfully");
@@ -134,6 +130,14 @@ export default function AdsManager() {
     setDeleteTarget(null);
   };
 
+  // ✅ Helper: resolve image path (Cloudinary vs Local)
+  const resolveImagePath = (img: string) => {
+    if (img.startsWith("http")) {
+      return img; // Cloudinary URL
+    }
+    return `${API_BASE.replace("/api", "")}${img}`; // Local uploads
+  };
+
   return (
     <Layout>
       <div dir={isRTL ? "rtl" : "ltr"} className="p-6 max-w-4xl mx-auto">
@@ -177,7 +181,7 @@ export default function AdsManager() {
                 {ad.images.map((img, i) => (
                   <div key={i} className="relative group">
                     <img
-                      src={`${API_BASE.replace("/api", "")}${img}`}
+                      src={resolveImagePath(img)}
                       alt="Ad"
                       className="w-full h-32 object-cover rounded"
                     />
