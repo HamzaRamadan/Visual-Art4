@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useLanguageHook } from "../../hooks/useLanguage";
 import SectionTitle from "../../components/layout/SectionTitle";
 import "./ProductDetail.css";
+import { API_BASE } from "../../components/admin/api";
 
 interface ProductLang {
   img: string;
@@ -39,7 +40,8 @@ export default function ProductDetailPage() {
 
   // تحميل جميع المنتجات للعرض في Related Products
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    // fetch("http://localhost:5000/api/products")
+    fetch(`${API_BASE}/products`)
       .then((res) => res.json())
       .then((data) => setAllProducts(data))
       .catch((err) => console.error("❌ Error fetching products:", err));
@@ -51,7 +53,8 @@ export default function ProductDetailPage() {
 
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/products/${id}`);
+        // const res = await fetch(`http://localhost:5000/api/products/${id}`);
+    const res = await fetch(`${API_BASE}/products/${id}`);
         if (!res.ok) throw new Error("Product not found");
         const data = await res.json();
         setProductData(data);
