@@ -142,7 +142,7 @@ const Logistics: React.FC = () => {
         />
 
         {!data ? (
-          <p className="text-center text-gray-500 mt-4">
+          <p className="text-center text-gray-500 -mt-8">
             {isRTL ? "لا يوجد خدمات لوجستية" : "No logistics services available"}
           </p>
         ) : (

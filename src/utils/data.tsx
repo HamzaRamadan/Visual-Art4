@@ -41,14 +41,14 @@ export const servicesData = {
     {
       id: 1,
       image: "/assets/images/consulting.svg",
-      title: "الخدمات الاستشارية",
+      title: "فريق الاستشارات",
       description: "خدمات استشارية متخصصة لتحسين عملية الإنتاج لديك",
       details:
-        "نعرف أن هناك تحديات كثيرة مثل كثرة الأشخاص المشاركين، تعدد مصادر المعلومات، وضيق الوقت. لذلك، نعمل معك على مراجعة الطريقة الحالية في شركتك، ونساعدك على وضعخطة أوضح وأسهل، تضمن سرعة الإنجاز وتوزيع المهام بشكل واضح للجميع.وباستخدام أدوات ومبادئ الـ Lean، إلى جانب تقنيات سير العمل الحديثة، سنقوم بتصميم عملية رسومية تلبي متطلباتك الفريدة، مما يوفر لك الوقت والجهد والتكاليف.",
+        ` فريق الاستشارات لدينا يساعدك في تنظيم وتبسيط خطوات العمل في التصميم والطباعة.
+   نعرف أن هناك تحديات كثيرة مثل كثرة الأشخاص المشاركين، تعدد مصادر المعلومات، وضيق الوقت. لذلك، نعمل معك على مراجعة الطريقة الحالية في شركتك، ونساعدك على وضعخطة أوضح وأسهل، تضمن سرعة الإنجاز وتوزيع المهام بشكل واضح للجميع.وباستخدام أدوات ومبادئ الـ Lean، إلى جانب تقنيات سير العمل الحديثة، سنقوم بتصميم عملية رسومية تلبي متطلباتك الفريدة، مما يوفر لك الوقت والجهد والتكاليف.`,
       images: [
-        "/assets/images/consulting.svg",
         "/assets/images/Co Profile 70 Pages 03-images-10.jpg",
-        "/assets/images/Co Profile 70 Pages 03-images-9.jpg",
+        
       ],
     },
     {
@@ -59,9 +59,8 @@ export const servicesData = {
       details:
         "فريقنا من المصممين المحترفين يساعدك على تسريع العمل وتوفير التكاليف ّ بفضل خبرة فريق التصميم لدينا والتكامل بين التصميم والطباعة، نقدم لكتصاميم جاهزة للطباعة مباشرة بعد الموافقة. نحن نأخذ بعين الاعتبار نوع الحبر، الخامة، والمعالجات النهائية، مما يضمن جودة عالية، وسرعة في التنفيذ،وتقليل التكاليف، لتصل بمنتجك إلى السوق بشكل أسرع",
       images: [
-        "/assets/images/creative.svg",
         "/assets/images/Co Profile 70 Pages 03-images-13.jpg",
-        "/assets/images/Co Profile 70 Pages 03-images-14.jpg",
+    
       ],
     },
     {
@@ -72,9 +71,8 @@ export const servicesData = {
       details: `الأخطاء في التصميم على عبوتك قد ت ّ كون مكلفة. نحن نستخدم أحدث أدوات المقارنة الرقمية المؤتمتة لنقدم أعلى مستوى ممكن من فحص الجودة للتصاميم، مما يقلل بشكل كبير من
 الأخطاء البشرية. وتضمن خبرتنا في التصنيع أن يتم ضبط كل تفصيل مهم بدقة عالية.`,
       images: [
-        "/assets/images/quality.svg",
         "/assets/images/Co Profile 70 Pages 03-images-15.jpg",
-        "/assets/images/Co Profile 70 Pages 03-images-16.jpg",
+       
       ],
     },
     {
@@ -84,9 +82,8 @@ export const servicesData = {
       description: "مرافق تخزين آمنة لمنتجاتك",
       details: `مرافق التخزين لدينا توفر أمانًا عاليًا لمنتجاتك، مع أنظمة مراقبة 24/7 وكاميرات مراقبة متقدمة وأجهزة إنذار لضمان سلامة المخزون. كما نوفر تنظيمًا فعالًا ورفوفًا مخصصة لتسهيل الوصول للمنتجات بسرعة وسهولة، مع إمكانية تتبع كل منتج رقمياً. خدماتنا تشمل أيضًا التحكم في درجة الحرارة والرطوبة حسب نوع المنتج، مما يحافظ على جودة المنتجات ويضمن رضا عملائنا.`,
       images: [
-        "/assets/images/warehouse.svg",
-        "/assets/images/download.jpeg",
-        "/assets/images/download (1).jpeg",
+        "/assets/images/45.png",
+       
       ],
     },
     {
@@ -96,9 +93,8 @@ export const servicesData = {
       description: "طاقة إنتاجية عالية لتلبية الطلبات الكبيرة",
       details: `تمتلك مرافقنا طاقة إنتاجية عالية قادرة على تلبية الطلبات الكبيرة والمتنوعة بسرعة وكفاءة. نوفر خطوط إنتاج متطورة تسمح بتصنيع منتجات متعددة في وقت واحد مع الحفاظ على أعلى معايير الجودة. كما نضمن متابعة دقيقة لكل مرحلة من مراحل الإنتاج لتقليل الأخطاء وزيادة الكفاءة، مع مرونة في تلبية احتياجات العملاء المتغيرة.`,
       images: [
-        "/assets/images/consulting.svg",
         "/assets/images/Co Profile 70 Pages 03-images-46.jpg",
-        "/assets/images/Co Profile 70 Pages 03-images-68.jpg",
+        
       ],
     },
   ],
@@ -109,15 +105,14 @@ export const servicesData = {
       title: "Consulting Services",
       description:
         "Expert consulting services to optimize your production process",
-      details: `involved, multiple sources of information, and time constraints.
+      details: ` Our consulting team helps you organize and streamline your design and print workflows. We know there are many challenges such as too many people 
+  involved, multiple sources of information, and time constraints.
 We work with you to review your company's current process and help you create a clearer and easier plan, ensuring faster turnaround times and a clear
 distribution of tasks for everyone.
 Using Lean tools and principles, along with modern workflow techniques, we will design a graphical process that meets your unique requirements, saving you
 time, effort, and costs.`,
       images: [
-        "/assets/images/consulting.svg",
-        "/assets/images/Co Profile 70 Pages 03-images-10.jpg",
-        "/assets/images/Co Profile 70 Pages 03-images-9.jpg",
+                "/assets/images/Co Profile 70 Pages 03-images-10.jpg",
       ],
     },
     {
@@ -129,9 +124,7 @@ time, effort, and costs.`,
 between design and print, we provide you with print-ready designs immediately after approval. We take into account the type of ink, material, and final
 treatments, ensuring high quality, fast turnaround, and reduced costs to get your product to market faster.`,
       images: [
-        "/assets/images/creative.svg",
-        "/assets/images/Co Profile 70 Pages 03-images-13.jpg",
-        "/assets/images/Co Profile 70 Pages 03-images-14.jpg",
+          "/assets/images/Co Profile 70 Pages 03-images-13.jpg",
       ],
     },
     {
@@ -142,9 +135,7 @@ treatments, ensuring high quality, fast turnaround, and reduced costs to get you
       details: `Design errors on your packaging can be costly. We use state-of-the-art automated digital comparison tools to provide the highest possible level of quality
 .control for designs, significantly reducing human error. Our manufacturing expertise ensures that every important detail is fine-tuned to high precision`,
       images: [
-        "/assets/images/quality.svg",
         "/assets/images/Co Profile 70 Pages 03-images-15.jpg",
-        "/assets/images/Co Profile 70 Pages 03-images-16.jpg",
       ],
     },
     {
@@ -154,9 +145,7 @@ treatments, ensuring high quality, fast turnaround, and reduced costs to get you
       description: "Secure warehousing facilities for your products",
       details: `Our storage facilities provide high security for your products, with 24/7 monitoring, advanced cameras, and alarm systems to ensure the safety of your inventory. We also offer efficient organization with dedicated shelving for quick and easy access, along with digital tracking of every product. Our services include temperature and humidity control according to product type, maintaining product quality and ensuring customer satisfaction.`,
       images: [
-        "/assets/images/warehouse.svg",
-        "/assets/images/download.jpeg",
-        "/assets/images/download (1).jpeg",
+        "/assets/images/45.png",
       ],
     },
     {
@@ -166,9 +155,7 @@ treatments, ensuring high quality, fast turnaround, and reduced costs to get you
       description: "High production capacity to meet large orders",
       details: `Our facilities have a high production capacity capable of efficiently handling large and diverse orders. We offer advanced production lines that allow multiple products to be manufactured simultaneously while maintaining the highest quality standards. Each stage of production is closely monitored to minimize errors and maximize efficiency, with flexibility to meet the evolving needs of our clients.`,
       images: [
-        "/assets/images/consulting.svg",
         "/assets/images/Co Profile 70 Pages 03-images-46.jpg",
-        "/assets/images/Co Profile 70 Pages 03-images-68.jpg",
       ],
     },
   ],

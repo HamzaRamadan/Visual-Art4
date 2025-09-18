@@ -16,7 +16,7 @@ const AboutDetailes = () => {
   };
 
   return (
-    <div className="page about-page ">
+    <div className="page about-page">
       <Parallax
         bgImage="/assets/images/WhatsApp Image 2025-08-31 at 9.35.49 AM (1).jpeg"
         strength={600}
@@ -25,7 +25,10 @@ const AboutDetailes = () => {
         bgClassName="custom-parallax-bg"
         className="parallax-wrapper"
       >
-        <div className="about-hero"></div>
+        {/* ✅ hero section with overlay */}
+        <div className="about-hero">
+          <div className="overlay"></div>
+        </div>
       </Parallax>
 
       {/* Content Section */}
@@ -51,13 +54,14 @@ const AboutDetailes = () => {
       <style>
         {`
         .custom-parallax-bg {
-          object-fit: contain !important;  
-          object-position: center bottom !important; 
-          background-color: #000;
+          object-fit: cover !important;
+          object-position: center center !important;
+          background-color: transparent !important; /* ✅ شيل السواد */
         }
 
         .parallax-wrapper {
-          height: 75vh; /* ديسكتوب */
+          height: 75vh;
+          position: relative;
         }
 
         .about-hero {
@@ -69,6 +73,12 @@ const AboutDetailes = () => {
           align-items: center;
           justify-content: center;
           overflow: hidden;
+        }
+
+        /* ✅ overlay شفاف فوق الصورة */
+        .about-hero .overlay {
+          position: absolute;
+          inset: 0;
         }
         
         .parallax-content {
@@ -84,32 +94,38 @@ const AboutDetailes = () => {
           padding: 0 0 4rem 0; 
           margin-top: -40px;
         }
-.vision-mission-card {
-  flex: 1;
-  background-color: var(--background-dark);
-  padding: 30px;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
+          .about-text{
+            font-size:16px
+          }
 
-.vision-mission-card:hover {
-  transform: translateY(-5px);
-}
+        .vision-mission-card {
+          flex: 1;
+          background-color: var(--background-dark);
+          padding: 30px;
+          border-radius: var(--border-radius);
+          box-shadow: var(--shadow);
+          transition: var(--transition);
+        }
 
-.vision-mission-card h3 {
-  color: #DC3545;
-  margin-bottom: 15px;
-  font-size: 1.5rem;
-}
+        .vision-mission-card:hover {
+          transform: translateY(-5px);
+        }
 
-.vision-mission-card p {
-  line-height: 1.6;
-}
+        .vision-mission-card h3 {
+          color: #DC3545;
+          margin-bottom: 15px;
+          font-size: 1.5rem;
+        }
+
+        .vision-mission-card p {
+          line-height: 1.6;
+          font-size:16px;
+          
+        }
 
         @media screen and (max-width: 767px) {
           .parallax-wrapper {
-            height: 55vh !important;  /* ⬅️ تصغير الارتفاع للموبايل */
+            height: 55vh !important;
           }
 
           .about-hero {

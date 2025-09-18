@@ -8,7 +8,7 @@ interface Ad {
 }
 
 const StaticImage: React.FC = () => {
-  const [, setAds] = useState<Ad[]>([]);
+  const [ ,setAds] = useState<Ad[]>([]);
   const [allImages, setAllImages] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -22,8 +22,13 @@ const StaticImage: React.FC = () => {
 
         // 🖼️ استخراج كل الصور من كل الإعلانات
         const images = data.flatMap((ad) =>
-          ad.images.map((img) => `${API_BASE.replace("/api", "")}${img}`)
+          ad.images.map((img) =>
+            img.startsWith("http")
+              ? img
+              : `${API_BASE.replace("/api", "")}${img}`
+          )
         );
+
         setAds(data);
         setAllImages(images);
       } catch (err) {
@@ -54,7 +59,7 @@ const StaticImage: React.FC = () => {
         />
       ))}
 
-      {/* لو مفيش صور */} 
+      {/* لو مفيش صور */}
       {allImages.length === 0 && (
         <p className="text-center text-gray-500">No images available</p>
       )}

@@ -3,6 +3,7 @@ import "./ProductsPage.css";
 import { useLanguageHook } from "../../hooks/useLanguage";
 import SectionTitle from "../../components/layout/SectionTitle";
 import ProductCard from "../../components/product/ProductCard";
+import { API_BASE } from "../../components/admin/api";
 
 interface ProductLang {
   img: string;
@@ -20,7 +21,7 @@ interface Product {
 }
 
 interface ProductDisplay {
-  mainId: string; // _id الأساسي
+  mainId: string;
   img: string;
   title: string;
   description: string;
@@ -30,6 +31,7 @@ interface ProductDisplay {
 
 export default function ProductsPage() {
   const [productsData, setProductsData] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true); // ✅ حالة التحميل
   const { language } = useLanguageHook();
   const isRTL = language === "ar";
 
@@ -38,20 +40,26 @@ export default function ProductsPage() {
 
   // ✅ تحميل البيانات من الـ API
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    setLoading(true);
+    fetch(`${API_BASE}/products`)
       .then((res) => res.json())
-      .then((data) => setProductsData(data))
-      .catch((err) => console.error("❌ Error fetching products:", err));
+      .then((data) => {
+        setProductsData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("❌ Error fetching products:", err);
+        setLoading(false);
+      });
   }, []);
 
-  // ✅ تحويل البيانات مع mainId صحيح
+  // ✅ تحويل البيانات
   const products = useMemo(() => {
     return (productsData || [])
       .map((p) => {
         const langData = p[language]?.[0];
         if (!langData) return null;
 
-        // تعديل هنا: استخراج _id كـ string
         let id: string = "";
         if (typeof p._id === "string") {
           id = p._id;
@@ -77,7 +85,7 @@ export default function ProductsPage() {
     return ["all", ...new Set(langs)];
   }, [products]);
 
-  // ✅ فلترة المنتجات حسب الكاتيجوري
+  // ✅ فلترة المنتجات
   useEffect(() => {
     if (activeCategory === "all") {
       setFilteredProducts(products);
@@ -93,57 +101,64 @@ export default function ProductsPage() {
       <div className="container">
         <SectionTitle title={language === "ar" ? "منتجاتنا" : "Our Products"} />
 
-        {/* أزرار الكاتيجوري */}
-        <div className="products-filter">
-          <div className="filter-buttons">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`filter-btn ${
-                  activeCategory === category ? "active" : ""
-                }`}
-                onClick={() => setActiveCategory(category)}
-              >
-                {category}
-              </button>
-            ))}
+        {/* ✅ Spinner أثناء التحميل */}
+        {loading ? (
+          <div className="spinner-container">
+            <div className="spinner"></div>
+            <p>{language === "ar" ? "جارٍ تحميل المنتجات..." : "Loading products..."}</p>
           </div>
-        </div>
+        ) : (
+          <>
+            {/* أزرار الكاتيجوري */}
+            <div className="products-filter">
+              <div className="filter-buttons">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    className={`filter-btn ${
+                      activeCategory === category ? "active" : ""
+                    }`}
+                    onClick={() => setActiveCategory(category)}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-        {/* شبكة المنتجات */}
-        <div className="products-grid">
-          {filteredProducts.map((product, index) => (
-           <ProductCard
-  key={product.mainId}
-  index={index}
-  product={{
-    _id: product.mainId,
-    ar: [],
-    en: [],
-    ...product,
-  }}
-/>
+            {/* شبكة المنتجات */}
+            <div className="products-grid">
+              {filteredProducts.map((product, index) => (
+                <ProductCard
+                  key={product.mainId}
+                  index={index}
+                  product={{
+                    _id: product.mainId,
+                    ar: [],
+                    en: [],
+                    ...product,
+                  }}
+                />
+              ))}
+            </div>
 
-          ))}
-        </div>
-
-        
-
-        {/* لا توجد منتجات */}
-        {filteredProducts.length === 0 && (
-          <div className="no-products">
-            <h3>
-              {language === "ar"
-                ? "لا توجد منتجات في هذه الفئة"
-                : "No products in this category"}
-            </h3>
-            <button
-              className="back-btn"
-              onClick={() => setActiveCategory("all")}
-            >
-              {language === "ar" ? "عرض جميع المنتجات" : "View All Products"}
-            </button>
-          </div>
+            {/* لا توجد منتجات */}
+            {filteredProducts.length === 0 && (
+              <div className="no-products">
+                <h3>
+                  {language === "ar"
+                    ? "لا توجد منتجات في هذه الفئة"
+                    : "No products in this category"}
+                </h3>
+                <button
+                  className="back-btn"
+                  onClick={() => setActiveCategory("all")}
+                >
+                  {language === "ar" ? "عرض جميع المنتجات" : "View All Products"}
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

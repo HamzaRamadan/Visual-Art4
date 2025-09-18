@@ -33,11 +33,12 @@
 .news-text h2 {
   font-size: 2rem;
   font-weight: bold;
+  color: #DC3545;
 }
 
 .news-text p {
-  color: #555;
-  font-size: 0.95rem;
+  color: #7249BD;
+  font-size: 20px;
 }
 
 .read-more-btn {
@@ -84,10 +85,29 @@
   flex-direction: column;
 }
 
-.news-card img {
+/* .news-card img {
   width: 100%;
   height: 300px;
   object-fit: cover;
+} */
+
+.news-card img {
+  width: 100%;
+  height: 300px;      
+  object-fit: cover;
+}
+
+/* للشاشات الكبيرة */
+@media (min-width: 1200px) {
+  .news-card img {
+    height: 450px;   
+  }
+}
+
+@media (min-width: 1600px) {
+  .news-card img {
+    height: 500px;    
+  }
 }
 
 .news-card-content {

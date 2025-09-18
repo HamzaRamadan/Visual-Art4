@@ -7,7 +7,7 @@ import { API_BASE } from "../../components/admin/api";
 
 interface ProductLang {
   img: string;
-  imgList?: string[]; // هنا دعم قائمة الصور
+  imgList?: string[];
   category: string;
   title: string;
   description: string;
@@ -21,7 +21,6 @@ interface Product {
   en: ProductLang[];
 }
 
-// دالة تحويل _id لأي شكل إلى string
 const getIdString = (prod: Product | ProductLang): string => {
   if (!prod._id) return "";
   if (typeof prod._id === "string") return prod._id;
@@ -37,24 +36,24 @@ export default function ProductDetailPage() {
   const [productData, setProductData] = useState<Product | null>(null);
   const [currentImage, setCurrentImage] = useState(0);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true); // ✅ حالة تحميل
 
-  // تحميل جميع المنتجات للعرض في Related Products
+  // تحميل جميع المنتجات
   useEffect(() => {
-    // fetch("http://localhost:5000/api/products")
     fetch(`${API_BASE}/products`)
       .then((res) => res.json())
       .then((data) => setAllProducts(data))
       .catch((err) => console.error("❌ Error fetching products:", err));
   }, []);
 
-  // تحميل المنتج الحالي بالـ id
+  // تحميل المنتج الحالي
   useEffect(() => {
     if (!id) return;
 
     const fetchProduct = async () => {
       try {
-        // const res = await fetch(`http://localhost:5000/api/products/${id}`);
-    const res = await fetch(`${API_BASE}/products/${id}`);
+        setLoading(true); // ✅ يبدأ تحميل
+        const res = await fetch(`${API_BASE}/products/${id}`);
         if (!res.ok) throw new Error("Product not found");
         const data = await res.json();
         setProductData(data);
@@ -62,12 +61,24 @@ export default function ProductDetailPage() {
       } catch (err) {
         console.error("❌ Error fetching product:", err);
         setProductData(null);
+      } finally {
+        setLoading(false); // ✅ ينتهي تحميل
       }
     };
 
     fetchProduct();
   }, [id, language]);
 
+  // ✅ لو لسه بيحمل
+  if (loading) {
+    return (
+      <div className="container flex justify-center items-center min-h-[50vh]">
+        <div className="loader"></div> {/* spinner */}
+      </div>
+    );
+  }
+
+  // ✅ لو المنتج مش موجود بعد التحميل
   if (!productData) {
     return (
       <div className="container" dir={isRTL ? "rtl" : "ltr"}>
@@ -86,19 +97,15 @@ export default function ProductDetailPage() {
   const product = productData[language]?.[0];
   if (!product) return null;
 
-  // ✅ تجهيز الصور للعرض
   const displayImages: string[] =
     product.imgList && product.imgList.length > 0 ? product.imgList : [product.img];
-  // تجهيز Related Products مع _id صحيح
+
   const relatedProducts = allProducts
     .filter((p) => getIdString(p) !== getIdString(productData))
     .map((p) => {
       const langProd = p[language]?.[0];
       if (!langProd) return null;
-      return {
-        ...langProd,
-        _id: getIdString(p), // _id صحيح
-      };
+      return { ...langProd, _id: getIdString(p) };
     })
     .filter(Boolean) as ProductLang[];
 

@@ -13,12 +13,13 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  margin-top: -30px;
 }
 
 .production-capacity-text p {
   font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .production-capacity-features ul {

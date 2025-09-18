@@ -22,13 +22,13 @@ export default function UploadMainNewsAndVideo() {
   const [newsSaved, setNewsSaved] = useState(false);
   const [newsLoading, setNewsLoading] = useState(false);
   const [newsEmpty, setNewsEmpty] = useState(false);
-  const [isEditing, setIsEditing] = useState(false); // ✅ حالة تعديل
+  const [isEditing, setIsEditing] = useState(false);
 
   // ===== Video State =====
   const [video, setVideo] = useState<string | null>(null);
   const [videoLoading, setVideoLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false); // ✅ popup للفيديو
-  const [showNewsModal, setShowNewsModal] = useState(false); // ✅ popup للأخبار
+  const [showModal, setShowModal] = useState(false); 
+  const [showNewsModal, setShowNewsModal] = useState(false);
 
   // ===== Notification =====
   const [notify, setNotify] = useState<{ message: string; type: "success" | "error" } | null>(null);
@@ -60,7 +60,7 @@ export default function UploadMainNewsAndVideo() {
     try {
       const res = await fetch(`${API_BASE}/videos`);
       const data = await res.json();
-      setVideo(data?.video || null);
+      setVideo(data.video || null);
     } catch (err) {
       console.error("❌ Error fetching video:", err);
     }
@@ -82,10 +82,9 @@ export default function UploadMainNewsAndVideo() {
     const { name, value } = e.target;
     if (!news) setNews({ titleAr: "", titleEn: "", descriptionAr: "", descriptionEn: "" });
     setNews((prev) => ({
-  ...(prev ?? { titleAr: "", titleEn: "", descriptionAr: "", descriptionEn: "" }),
-  [name]: value,
-}));
-
+      ...(prev ?? { titleAr: "", titleEn: "", descriptionAr: "", descriptionEn: "" }),
+      [name]: value,
+    }));
     setNewsSaved(false);
   };
 
@@ -95,7 +94,6 @@ export default function UploadMainNewsAndVideo() {
     try {
       const method = news._id ? "PUT" : "POST";
       const url = news._id ? `${API_BASE}/main-news/${news._id}` : `${API_BASE}/main-news`;
-
       const res = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
@@ -107,7 +105,7 @@ export default function UploadMainNewsAndVideo() {
         setNews(data);
         setNewsEmpty(false);
         setNewsSaved(true);
-        setIsEditing(false); // ✅ رجع الزرار تاني لحفظ
+        setIsEditing(false);
         showNotify(isRTL ? "✅ تم حفظ البيانات بنجاح" : "✅ Saved successfully", "success");
       } else {
         showNotify(isRTL ? "❌ فشل الحفظ" : "❌ Failed to save", "error");
@@ -131,7 +129,8 @@ export default function UploadMainNewsAndVideo() {
     try {
       const res = await fetch(`${API_BASE}/videos`, { method: "POST", body: formData });
       if (res.ok) {
-        await fetchVideo();
+        const data = await res.json();
+        setVideo(data.video); // ⚡ استخدم الرابط المباشر
         showNotify(isRTL ? "✅ تم رفع الفيديو بنجاح" : "✅ Video uploaded successfully", "success");
       } else {
         showNotify(isRTL ? "❌ فشل رفع الفيديو" : "❌ Failed to upload video", "error");
@@ -287,7 +286,7 @@ export default function UploadMainNewsAndVideo() {
 
           {video && (
             <>
-              <video src={`${API_BASE.replace("/api", "")}${video}`} controls className="w-full rounded-lg shadow-lg" />
+              <video src={video} controls className="w-full max-w-2xl rounded-lg shadow-lg" />
               <button
                 onClick={confirmDeleteVideo}
                 disabled={videoLoading}

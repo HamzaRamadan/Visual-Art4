@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
     heading: {
       fontSize: "1.5rem",
       fontWeight: "bold",
-      color: "#4b0082",
+      color: "#DC3545",
       display: "flex",
       alignItems: "center",
       gap: "0.5rem",

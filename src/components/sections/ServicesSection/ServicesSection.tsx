@@ -30,7 +30,7 @@ const ServicesSection = () => {
                     <h3 className="service-title">{service.title}</h3>
                   </div>
                   <div className="flip-card-back">
-                    <p className="service-description">{service.description}</p>
+                    <p>{service.description}</p>
                     <Link
                       to={`/services/${service.id}`}
                       className="service-btn"

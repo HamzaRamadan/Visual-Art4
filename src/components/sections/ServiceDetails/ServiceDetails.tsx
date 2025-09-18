@@ -2,49 +2,40 @@ import { useParams } from "react-router-dom";
 import { servicesData } from "../../../utils/data";
 import { useLanguageHook } from "../../../hooks/useLanguage";
 import { useState } from "react";
-import "./ServiceDetails.css"; 
+import "./ServiceDetails.css";
 
 const ServiceDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { language } = useLanguageHook();
   const service = servicesData[language].find((s) => s.id.toString() === id);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex] = useState(0);
 
   if (!service) {
     return <h2>Service not found</h2>;
   }
 
   return (
-    <div className="service-details-container">
+    <div
+      className={`service-details-container ${
+        language === "ar" ? "rtl" : "ltr"
+      }`}
+    >
       <h1 className="service-details-title">{service.title}</h1>
 
       {/* الصورة الرئيسية */}
-      <div className="main-image-container">
+
+      <div className="parallax-wrapper h-[60vh] relative">
         <img
           src={service.images[currentIndex]}
-          alt={service.title}
-          className="main-image"
+          alt="service"
+          className="w-full h-full object-content"
         />
-      </div>
 
-      {/* الصور الصغيرة (Thumbnails) */}
-      <div className="thumbnails-container">
-        {service.images.slice(0, 3).map((img, index) => (
-          <div
-            key={index}
-            className={`thumbnail-box ${
-              index === currentIndex ? "active" : ""
-            }`}
-            onClick={() => setCurrentIndex(index)}
-          >
-            <img
-              src={img}
-              alt={`Thumbnail ${index + 1}`}
-              className="thumbnail-img"
-            />
-          </div>
-        ))}
+        {/* ✅ hero section with overlay */}
+        <div className="about-hero absolute inset-0">
+          <div className="overlay"></div>
+        </div>
       </div>
 
       <p className="service-description">{service.description}</p>
