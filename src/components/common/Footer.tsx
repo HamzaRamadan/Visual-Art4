@@ -78,8 +78,9 @@ const Footer: React.FC = () => {
               <div>
                 <div
                   style={{
-                    marginBottom: "20px",
-                    textAlign: windowWidth < 768 ? "center" : "left",
+                    marginBottom: windowWidth < 768 ? "-5px" : "20px",
+                    textAlign: windowWidth < 768 ? "left" : "left",
+                    marginLeft: "-150px",
                   }}
                 >
                   <img
@@ -88,110 +89,145 @@ const Footer: React.FC = () => {
                     style={{
                       height:
                         windowWidth < 576
-                          ? "90px"
+                          ? "70px"
                           : windowWidth < 768
-                          ? "100px"
+                          ? "90px"
                           : windowWidth < 992
                           ? "110px"
                           : "130px",
                       maxWidth: "100%",
                       objectFit: "contain",
+                      display: "inline-block",
                     }}
                   />
                 </div>
                 <p
                   style={{
-                    fontSize: "0.95rem",
-                    lineHeight: "1.4",
-                    marginBottom: "25px",
+                    fontSize: windowWidth < 576 ? "0.85rem" : "0.95rem",
+                    lineHeight: windowWidth < 576 ? "1.2" : "1.4",
+                    marginBottom: windowWidth < 768 ? "10px" : "25px", // قللنا المسافة تحت السطر على الموبايل
                     opacity: 0.9,
-                    textAlign: windowWidth < 768 ? "center" : "left",
+                    textAlign: windowWidth < 768 ? "center" : "left", // النص في النص على الموبايل
                     display: "-webkit-box",
                     WebkitLineClamp: windowWidth < 576 ? 2 : undefined,
                     WebkitBoxOrient: "vertical",
                     overflow: "hidden",
+                    marginLeft: "-150px",
                   }}
                 >
                   {companyData[language].slogan}
                 </p>
               </div>
 
-             {windowWidth > 992 && (
-  <div>
-    <h3>{isRTL ? "روابط سريعة" : "Quick Links"}</h3>
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "10px 40px",
-      }}
-    >
-      {[
-        { path: "/", label: isRTL ? "الرئيسية" : "Home" },
-        { path: "/about", label: isRTL ? "من نحن" : "About Us" },
-        { path: "/services", label: isRTL ? "خدماتنا" : "Services" },
-        { path: "/products", label: isRTL ? "منتجاتنا" : "Products" },
-        { path: "/contact", label: isRTL ? "اتصل بنا" : "Contact" },
-        { path: "/news", label: isRTL ? "الاخبار" : "News" },
-      ].map((link, index) => (
-        <div key={index} style={{ marginBottom: "12px" }}>
-          <Link to={link.path} className="footer-link">
-            {link.label}
-          </Link>
-        </div>
-      ))}
-    </div>
-  </div>
-)}
+              {windowWidth > 992 && (
+                <div>
+                  <h3>{isRTL ? "روابط سريعة" : "Quick Links"}</h3>
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr",
+                      gap: "10px -20px",
+                      marginLeft: "-80px",
+                    }}
+                  >
+                    {[
+                      { path: "/", label: isRTL ? "الرئيسية" : "Home" },
+                      { path: "/about", label: isRTL ? "من نحن" : "About Us" },
+                      {
+                        path: "/services",
+                        label: isRTL ? "خدماتنا" : "Services",
+                      },
+                      {
+                        path: "/products",
+                        label: isRTL ? "منتجاتنا" : "Products",
+                      },
+                      {
+                        path: "/contact",
+                        label: isRTL ? "اتصل بنا" : "Contact",
+                      },
+                      { path: "/news", label: isRTL ? "الاخبار" : "News" },
+                    ].map((link, index) => (
+                      <div key={index} style={{ marginBottom: "12px" }}>
+                        <Link to={link.path} className="footer-link">
+                          {link.label}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-
-             {/* Contact Info – Responsive for Mobile */}
-<div
-  style={{
-    flex: 1,
-    textAlign: "center",
-    marginTop: "20px",
-  }}
->
-  <h3>{isRTL ? "اتصل بنا" : "Contact Us"}</h3>
-  <ul
-    style={{
-      listStyle: "none",
-      padding: 0,
-      marginTop: "10px",
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr", 
-      gap: "10px 20px",
-      justifyItems: "center",
-    }}
-  >
-    <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-      <FaMapMarkerAlt />
-      <span>{contact.address}</span>
-    </li>
-    <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-      <FaPhone />
-      <span
-        style={{
-          direction: "ltr",
-          unicodeBidi: "plaintext",
-          fontFamily: "Arial, sans-serif",
-        }}
-      >
-        {isRTL ? "+964 782 450 0000" : "+964 782 450 0000"}
-      </span>
-    </li>
-    <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-      <FaEnvelope />
-      <span>{contact.email}</span>
-    </li>
-    <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-      <FaGlobe />
-      <span>{contact.website}</span>
-    </li>
-  </ul>
-</div>
-
+              {/* Contact Info – Responsive for Mobile */}
+              <div
+                style={{
+                  flex: 1,
+                  textAlign: "center",
+                  marginTop: "-5px",
+                  marginLeft: "-80px",
+                }}
+              >
+                <h3>{isRTL ? "اتصل بنا" : "Contact Us"}</h3>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    padding: 0,
+                    marginTop: "10px",
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "10px 20px",
+                    justifyItems: "center",
+                  }}
+                >
+                  <li
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    <FaMapMarkerAlt />
+                    <span>{contact.address}</span>
+                  </li>
+                  <li
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    <FaPhone />
+                    <span
+                      style={{
+                        direction: "ltr",
+                        unicodeBidi: "plaintext",
+                        fontFamily: "Arial, sans-serif",
+                      }}
+                    >
+                      {isRTL ? "+964 782 450 0000" : "+964 782 450 0000"}
+                    </span>
+                  </li>
+                  <li
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    <FaEnvelope />
+                    <span>{contact.email}</span>
+                  </li>
+                  <li
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    <FaGlobe />
+                    <span>{contact.website}</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -210,7 +246,9 @@ const Footer: React.FC = () => {
               textAlign: windowWidth < 768 ? "center" : "left",
             }}
           >
-            <p style={{ fontSize: "0.9rem", opacity: 0.8 }}>
+            <p
+              style={{ fontSize: "0.9rem", opacity: 0.8, marginLeft: "-150px" }}
+            >
               &copy; {new Date().getFullYear()} {companyData[language].name}.{" "}
               {isRTL ? "جميع الحقوق محفوظة" : "All Rights Reserved"}.
             </p>

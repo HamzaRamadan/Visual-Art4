@@ -6,6 +6,7 @@ import { Parallax } from "react-parallax";
 
 const AboutDetailes = () => {
   const { language } = useLanguage();
+  const isRTL = language === "ar";
 
   const t = (key: string): string => {
     return (
@@ -16,7 +17,7 @@ const AboutDetailes = () => {
   };
 
   return (
-    <div className="page about-page">
+    <div className="page about-page" dir={isRTL ? "rtl" : "ltr"}>
       <Parallax
         bgImage="/assets/images/WhatsApp Image 2025-08-31 at 9.35.49 AM (1).jpeg"
         strength={600}
