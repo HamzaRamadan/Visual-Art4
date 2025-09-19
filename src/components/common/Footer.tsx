@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguageHook } from "../../hooks/useLanguage";
 import { companyData } from "../../utils/data";
@@ -8,274 +8,92 @@ const Footer: React.FC = () => {
   const { language } = useLanguageHook();
   const isRTL = language === "ar";
   const contact = companyData[language].contact;
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
-    <>
-      {/* ✅ CSS داخل الكومبوننت لدعم hover */}
-      <style>
-        {`
-          .footer-link,
-          .bottom-link {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: inline-block;
-          }
+    <footer
+      className="bg-[#7249bc] text-white font-[Cairo] mt-auto"
+      dir={isRTL ? "rtl" : "ltr"}
+    >
+      {/* Main Footer */}
+      <div className="max-w-[1200px] mx-auto px-5 py-10 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 text-center md:text-left">
+        {/* Logo + slogan */}
+        <div className={isRTL ? "md:text-right" : "md:text-left"}>
+          <img
+            src="/assets/images/Footer.jpeg"
+            alt={companyData[language].name}
+            className="h-[100px] max-w-full object-contain mb-4 mx-auto md:mx-0"
+          />
+          <p className="text-sm md:text-base opacity-90 leading-relaxed">
+            {companyData[language].slogan}
+          </p>
+        </div>
 
-          .footer-link:hover,
-          .bottom-link:hover {
-            color: #3498db; /* أزرق */
-          }
-
-          .footer-link {
-            font-size: 0.95rem;
-          }
-
-          .bottom-link {
-            font-size: 0.9rem;
-          }
-        `}
-      </style>
-
-      <footer
-        style={{
-          backgroundColor: "#7249bc",
-          color: "#ffffff",
-          fontFamily: "'Cairo', 'Poppins', sans-serif",
-          marginTop: "auto",
-          paddingTop: windowWidth < 768 ? "30px" : "0",
-          paddingBottom: windowWidth < 768 ? "20px" : "0",
-        }}
-        dir={isRTL ? "rtl" : "ltr"}
-      >
-        <div style={{ padding: "30px 0" }}>
-          <div
-            style={{
-              maxWidth: "1200px",
-              margin: "0 auto",
-              padding: windowWidth < 576 ? "0 15px" : "0 20px",
-            }}
-          >
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns:
-                  windowWidth < 768
-                    ? "1fr"
-                    : windowWidth < 992
-                    ? "repeat(2, 1fr)"
-                    : "repeat(3, 1fr)",
-                gap: "40px",
-              }}
-            >
-              <div>
-                <div
-                  style={{
-                    marginBottom: windowWidth < 768 ? "-5px" : "20px",
-                    textAlign: windowWidth < 768 ? "left" : "left",
-                    marginLeft: "-150px",
-                  }}
-                >
-                  <img
-                    src="/assets/images/Footer.jpeg"
-                    alt={companyData[language].name}
-                    style={{
-                      height:
-                        windowWidth < 576
-                          ? "70px"
-                          : windowWidth < 768
-                          ? "90px"
-                          : windowWidth < 992
-                          ? "110px"
-                          : "130px",
-                      maxWidth: "100%",
-                      objectFit: "contain",
-                      display: "inline-block",
-                    }}
-                  />
-                </div>
-                <p
-                  style={{
-                    fontSize: windowWidth < 576 ? "0.85rem" : "0.95rem",
-                    lineHeight: windowWidth < 576 ? "1.2" : "1.4",
-                    marginBottom: windowWidth < 768 ? "10px" : "25px", // قللنا المسافة تحت السطر على الموبايل
-                    opacity: 0.9,
-                    textAlign: windowWidth < 768 ? "center" : "left", // النص في النص على الموبايل
-                    display: "-webkit-box",
-                    WebkitLineClamp: windowWidth < 576 ? 2 : undefined,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                    marginLeft: "-150px",
-                  }}
-                >
-                  {companyData[language].slogan}
-                </p>
-              </div>
-
-              {windowWidth > 992 && (
-                <div>
-                  <h3>{isRTL ? "روابط سريعة" : "Quick Links"}</h3>
-                  <div
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "1fr 1fr",
-                      gap: "10px -20px",
-                      marginLeft: "-80px",
-                    }}
-                  >
-                    {[
-                      { path: "/", label: isRTL ? "الرئيسية" : "Home" },
-                      { path: "/about", label: isRTL ? "من نحن" : "About Us" },
-                      {
-                        path: "/services",
-                        label: isRTL ? "خدماتنا" : "Services",
-                      },
-                      {
-                        path: "/products",
-                        label: isRTL ? "منتجاتنا" : "Products",
-                      },
-                      {
-                        path: "/contact",
-                        label: isRTL ? "اتصل بنا" : "Contact",
-                      },
-                      { path: "/news", label: isRTL ? "الاخبار" : "News" },
-                    ].map((link, index) => (
-                      <div key={index} style={{ marginBottom: "12px" }}>
-                        <Link to={link.path} className="footer-link">
-                          {link.label}
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Contact Info – Responsive for Mobile */}
-              <div
-                style={{
-                  flex: 1,
-                  textAlign: "center",
-                  marginTop: "-5px",
-                  marginLeft: "-80px",
-                }}
+        {/* Quick Links – hidden on small screens */}
+        <div className="hidden lg:flex flex-col items-center">
+          <h3 className="text-lg font-semibold mb-5 text-center">
+            {isRTL ? "روابط سريعة" : "Quick Links"}
+          </h3>
+          <div className="grid grid-cols-3 gap-3 text-center">
+            {[
+              { path: "/", label: isRTL ? "الرئيسية" : "Home" },
+              { path: "/about", label: isRTL ? "من نحن" : "About Us" },
+              { path: "/services", label: isRTL ? "خدماتنا" : "Services" },
+              { path: "/products", label: isRTL ? "منتجاتنا" : "Products" },
+              { path: "/contact", label: isRTL ? "اتصل بنا" : "Contact" },
+              { path: "/news", label: isRTL ? "الأخبار" : "News" },
+            ].map((link, i) => (
+              <Link
+                key={i}
+                to={link.path}
+                className="footer-link text-white/80 hover:text-[#3498db] text-sm"
               >
-                <h3>{isRTL ? "اتصل بنا" : "Contact Us"}</h3>
-                <ul
-                  style={{
-                    listStyle: "none",
-                    padding: 0,
-                    marginTop: "10px",
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "10px 20px",
-                    justifyItems: "center",
-                  }}
-                >
-                  <li
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                    }}
-                  >
-                    <FaMapMarkerAlt />
-                    <span>{contact.address}</span>
-                  </li>
-                  <li
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                    }}
-                  >
-                    <FaPhone />
-                    <span
-                      style={{
-                        direction: "ltr",
-                        unicodeBidi: "plaintext",
-                        fontFamily: "Arial, sans-serif",
-                      }}
-                    >
-                      {isRTL ? "+964 782 450 0000" : "+964 782 450 0000"}
-                    </span>
-                  </li>
-                  <li
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                    }}
-                  >
-                    <FaEnvelope />
-                    <span>{contact.email}</span>
-                  </li>
-                  <li
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                    }}
-                  >
-                    <FaGlobe />
-                    <span>{contact.website}</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
 
-        <div style={{ backgroundColor: "rgba(0,0,0,0.2)", padding: "20px 0" }}>
-          <div
-            style={{
-              maxWidth: "1200px",
-              margin: "0 auto",
-              padding: "0 20px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              flexDirection: windowWidth < 768 ? "column" : "row",
-              gap: "10px",
-              textAlign: windowWidth < 768 ? "center" : "left",
-            }}
-          >
-            <p
-              style={{ fontSize: "0.9rem", opacity: 0.8, marginLeft: "-150px" }}
-            >
-              &copy; {new Date().getFullYear()} {companyData[language].name}.{" "}
-              {isRTL ? "جميع الحقوق محفوظة" : "All Rights Reserved"}.
-            </p>
-            {/* <div
-              style={{
-                display: "flex",
-                gap:
-                  windowWidth < 576
-                    ? "8px"
-                    : windowWidth < 768
-                    ? "10px"
-                    : "20px",
-                flexDirection: windowWidth < 576 ? "column" : "row",
-                alignItems: "center",
-              }}
-            >
-              <Link to="/privacy" className="bottom-link">
-                {isRTL ? "سياسة الخصوصية" : "Privacy Policy"}
-              </Link>
-              <Link to="/terms" className="bottom-link">
-                {isRTL ? "الشروط والأحكام" : "Terms & Conditions"}
-              </Link>
-            </div> */}
-          </div>
+        {/* Contact Info */}
+        {/* Contact Info */}
+        <div className={isRTL ? "md:text-right" : "md:text-left"}>
+          <h3 className="text-lg font-semibold text-center md:text-left">
+            {isRTL ? "اتصل بنا" : "Contact Us"}
+          </h3>
+          <ul className="mt-5 grid grid-cols-2 gap-3 text-center md:text-left">
+            <li className="flex items-center justify-center md:justify-start gap-2 text-sm">
+              <FaMapMarkerAlt />
+              <span>{contact.address}</span>
+            </li>
+            <li className="flex items-center justify-center md:justify-start gap-2 text-sm">
+              <FaPhone />
+              <span className="direction-ltr">{contact.phone}</span>
+            </li>
+            <li className="flex items-center justify-center md:justify-start gap-2 text-sm">
+              <FaEnvelope />
+              <span>{contact.email}</span>
+            </li>
+            <li className="flex items-center justify-center md:justify-start gap-2 text-sm">
+              <FaGlobe />
+              <span>{contact.website}</span>
+            </li>
+          </ul>
         </div>
-      </footer>
-    </>
+      </div>
+
+      {/* Bottom */}
+      <div className="bg-black/20 py-4">
+        <div className="max-w-[1200px] mx-auto px-5 flex flex-col md:flex-row justify-between items-center text-sm opacity-80 text-center md:text-left">
+          <p
+            className={`w-full md:w-auto ${
+              isRTL ? "md:text-right md:ml-auto" : "md:text-left md:mr-auto"
+            }`}
+          >
+            &copy; {new Date().getFullYear()} {companyData[language].name}.{" "}
+            {isRTL ? "جميع الحقوق محفوظة." : "All Rights Reserved."}
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 };
 
