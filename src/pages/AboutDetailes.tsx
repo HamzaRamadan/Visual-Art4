@@ -1,6 +1,6 @@
 import SectionTitle from "../components/layout/SectionTitle";
 import { useLanguage } from "../context/LanguageContext";
-import { aboutTranslations } from "../utils/aboutTranslations";
+import { aboutTranslations, ourMission } from "../utils/aboutTranslations";
 import "../components/sections/AboutUs/AboutUs.css";
 import { Parallax } from "react-parallax";
 
@@ -46,7 +46,8 @@ const AboutDetailes = () => {
             </div>
             <div className="vision-mission-card">
               <h3>{t("ourMission")}</h3>
-              <p>{t("mission")}</p>
+                {ourMission[language].mission}
+              
             </div>
           </div>
         </div>

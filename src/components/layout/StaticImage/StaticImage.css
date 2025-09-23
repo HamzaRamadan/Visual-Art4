@@ -13,19 +13,18 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* ✅ يخلي الصورة كاملة */
+  object-fit: contain; /* ✅ الصورة كاملة */
   object-position: center;
   opacity: 0;
-  transform: translateX(30px) scale(1.05);
-  transition: opacity 1.2s ease-in-out, transform 5s ease-in-out;
+  transition: opacity 1.5s ease-in-out; /* ✅ بس على الشفافية */
   z-index: 0;
 }
 
 .parallax-image.active {
   opacity: 1;
-  transform: translateX(0) scale(1);
   z-index: 1;
 }
+
 
 /* 📱 موبايل */
 @media (max-width: 768px) {

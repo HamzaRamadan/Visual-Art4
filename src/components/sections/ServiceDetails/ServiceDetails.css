@@ -43,18 +43,27 @@
   font-size    : 1.5rem !important;
   font-weight  : bold;
   margin-bottom: 15px;
-  color        : #0a4d8c !important;
   margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 2.5rem;
 }
+.service-description {
+  line-height: 1.6;
+  color: #DC3545 !important;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  text-align: justify;
+}
+
 
 .service-details-text {
-
+  line-height: 1.4;
   color      : #7249BD !important;
-  margin-top : 0.5rem;
-  font-size  : 1.1rem;
-  line-height: 1.8;
-  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  text-align: justify;
 }
+
 
 .service-details-container.rtl {
   direction : rtl;
@@ -64,4 +73,32 @@
 .service-details-container.ltr {
   direction : ltr;
   text-align: left;
+}
+
+
+
+
+
+
+.vision-mission-card1 {
+  flex: 1;
+  background-color: var(--background-dark);
+  padding: 30px;
+  /* border-radius: var(--border-radius); */
+  /* box-shadow: var(--shadow); */
+  transition: var(--transition);
+}
+
+.vision-mission-card1:hover {
+  transform: translateY(-5px);
+}
+
+.vision-mission-card1 h3 {
+  color: #DC3545;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.vision-mission-card1 p {
+  line-height: 1.6;
 }

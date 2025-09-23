@@ -3,6 +3,7 @@ import { servicesData } from "../../../utils/data";
 import { useLanguageHook } from "../../../hooks/useLanguage";
 import { useState } from "react";
 import "./ServiceDetails.css";
+import SectionTitle from "../../layout/SectionTitle";
 
 const ServiceDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -21,15 +22,19 @@ const ServiceDetails = () => {
         language === "ar" ? "rtl" : "ltr"
       }`}
     >
-      <h1 className="service-details-title">{service.title}</h1>
+      {/* <h1 className="service-details-title">{service.title}</h1> */}
+      <div className="m-auto flex justify-center items-center">
+
+        <SectionTitle  title={service.title} />
+      </div>
 
       {/* الصورة الرئيسية */}
 
-      <div className="parallax-wrapper h-[60vh] relative">
+      <div className="parallax-wrapper h-[100vh] relative">
         <img
           src={service.images[currentIndex]}
           alt="service"
-          className="w-full h-full object-content"
+          className="w-full h-full object-fill"
         />
 
         {/* ✅ hero section with overlay */}
@@ -38,8 +43,15 @@ const ServiceDetails = () => {
         </div>
       </div>
 
-      <p className="service-description">{service.description}</p>
-      <p className="service-details-text">{service.details}</p>
+      {/* <p className="service-description">{service.description}</p>
+      <p className="service-details-text">{service.details}</p> */}
+          <div className="about-vision-mission">
+
+      <div className="vision-mission-card1 text-[#7249BD]">
+              <h3>{service.description}</h3>
+              <p>{service.details}</p>
+            </div>
+    </div>
     </div>
   );
 };

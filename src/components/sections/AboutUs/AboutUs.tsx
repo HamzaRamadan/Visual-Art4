@@ -1,6 +1,6 @@
 import React from "react";
 import { useLanguage } from "../../../context/LanguageContext";
-import { aboutTranslations } from "../../../utils/aboutTranslations";
+import { aboutTranslations, ourMission } from "../../../utils/aboutTranslations";
 import SectionTitle from "../../layout/SectionTitle";
 import "./AboutUs.css";
 import { Link } from "react-router-dom";
@@ -42,7 +42,8 @@ const AboutUs: React.FC = () => {
 
             <div className="vision-mission-card">
               <h3>{t("ourMission")}</h3>
-              <p>{t("mission")}</p>
+  {ourMission[language].mission}
+
             </div>
           </div>
         </div>
