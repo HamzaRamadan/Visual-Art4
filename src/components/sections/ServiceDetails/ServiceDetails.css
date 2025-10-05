@@ -102,3 +102,49 @@
 .vision-mission-card1 p {
   line-height: 1.6;
 }
+
+
+
+
+
+/* 🎯 التنسيق الافتراضي للابتوب */
+.vision-mission-card1 {
+  flex: 1;
+  background-color: var(--background-dark);
+  padding: 30px;
+  color: #7249BD;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.vision-mission-card1 h3 {
+  color: #DC3545;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.vision-mission-card1 p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* 📱 التنسيق في شاشة الموبايل */
+@media (max-width: 768px) {
+  .vision-mission-card1 {
+    text-align: center !important; /* يخلّي النص في النص */
+    margin: 0 auto; /* يوسّط العنصر نفسه */
+    padding: 20px !important;
+    width: 90%; /* يسيب مسافة بسيطة من الجوانب */
+  }
+
+  .vision-mission-card1 h3 {
+    font-size: 1.4rem !important;
+    margin-bottom: 10px;
+  }
+
+  .vision-mission-card1 p {
+    font-size: 1rem !important;
+    line-height: 1.7;
+  }
+}

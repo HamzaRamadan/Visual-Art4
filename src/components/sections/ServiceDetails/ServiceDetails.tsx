@@ -30,12 +30,18 @@ const ServiceDetails = () => {
 
       {/* الصورة الرئيسية */}
 
-      <div className="parallax-wrapper h-[100vh] relative">
+      {/* <div className="parallax-wrapper h-[100vh] relative">
         <img
           src={service.images[currentIndex]}
           alt="service"
           className="w-full h-full object-fill"
-        />
+        /> */}
+<div className="parallax-wrapper relative w-full h-[50vh] md:h-[100vh] overflow-hidden">
+  <img
+    src={service.images[currentIndex]}
+    alt="service"
+    className="w-full h-full object-cover sm:object-contain md:object-cover"
+  />
 
         {/* ✅ hero section with overlay */}
         <div className="about-hero absolute inset-0">
@@ -43,8 +49,7 @@ const ServiceDetails = () => {
         </div>
       </div>
 
-      {/* <p className="service-description">{service.description}</p>
-      <p className="service-details-text">{service.details}</p> */}
+
           <div className="about-vision-mission">
 
       <div className="vision-mission-card1 text-[#7249BD]">
