@@ -123,7 +123,7 @@
 //               : defaultText.description}
 //           </p>
 //         </div>
-       
+
 //      <div className="news-cards flex flex-wrap gap-6 justify-start">
 //   {newsCards.map((news) => (
 //     <div
@@ -136,7 +136,7 @@
 //           src={news.image}
 //           alt={isRTL ? news.titleAr : news.titleEn}
 //           className="h-48 object-cover rounded-md mb-3"
-//           style={{ width: '100%' }} 
+//           style={{ width: '100%' }}
 //         />
 //       )}
 
@@ -155,7 +155,6 @@
 //         {new Date(news.date).toLocaleDateString(isRTL ? "ar-EG" : "en-US")}
 //       </span>
 
-      
 //     </div>
 //   ))}
 // </div>
@@ -180,8 +179,6 @@
 // };
 
 // export default News;
-
-
 
 import "./News.css";
 import { useLanguageHook } from "../../hooks/useLanguage";
@@ -278,30 +275,48 @@ const News = () => {
       </div>
 
       {/* ✅ شبكة الكروت المرنة */}
-      <div className="news-cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12 w-full px-6 md:px-12">
+      <div
+        className={`news-cards grid gap-6 mb-12 w-full px-6 md:px-12 ${
+          newsCards.length === 1
+            ? "grid-cols-1 place-items-center"
+            : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        }`}
+      >
         {newsCards.map((news) => (
           <div
             key={news._id || news.id}
-            className="news-card bg-white shadow-md rounded-xl p-4 flex flex-col hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
+            className={`news-card bg-white shadow-md rounded-xl p-4 flex flex-col hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ${
+              newsCards.length === 1 ? "max-w-md w-full" : ""
+            }`}
           >
+            {/* ✅ الصورة */}
             {news.image && (
               <img
                 src={news.image}
                 alt={isRTL ? news.titleAr : news.titleEn}
-                className="h-44 object-cover rounded-md mb-3 w-full"
+                className={`rounded-md mb-3 w-full ${
+                  newsCards.length === 1
+                    ? "h-auto object-contain max-h-96"
+                    : "h-44 object-cover"
+                }`}
               />
             )}
 
+            {/* ✅ العنوان */}
             <h3 className="font-bold text-lg mb-2">
               {isRTL ? news.titleAr : news.titleEn}
             </h3>
 
+            {/* ✅ الوصف */}
             <p className="text-gray-700 text-sm line-clamp-3 mb-4">
               {isRTL ? news.descriptionAr : news.descriptionEn}
             </p>
 
+            {/* ✅ التاريخ */}
             <span className="text-gray-500 text-xs">
-              {new Date(news.date).toLocaleDateString(isRTL ? "ar-EG" : "en-US")}
+              {new Date(news.date).toLocaleDateString(
+                isRTL ? "ar-EG" : "en-US"
+              )}
             </span>
           </div>
         ))}
