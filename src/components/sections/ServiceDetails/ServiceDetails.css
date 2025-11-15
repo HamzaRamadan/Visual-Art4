@@ -113,7 +113,7 @@
   background-color: var(--background-dark);
   padding: 30px;
   color: #7249BD;
-  text-align: left;
+  text-align: start;
   transition: var(--transition);
 }
 
